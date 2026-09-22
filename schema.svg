@@ -1,144 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1098 764" width="1098" height="764" font-family="Menlo, Consolas, 'Courier New', monospace">
-<rect x="0" y="0" width="1098" height="764" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 938 630" width="938" height="630" font-family="Menlo, Consolas, 'Courier New', monospace">
+<rect x="0" y="0" width="938" height="630" fill="#ffffff"/>
 <defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a9a9a"/>
   </marker>
 </defs>
-<polyline points="704.0,137.0 764.0,85.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
-<polyline points="704.0,215.0 726.0,215.0 726.0,439.0 704.0,439.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
-<polyline points="334.0,439.0 364.0,439.0 364.0,85.0 394.0,85.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
-<polyline points="334.0,611.0 348.0,611.0 348.0,85.0 394.0,85.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
-<polyline points="704.0,637.0 742.0,637.0 742.0,85.0 704.0,85.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
-<polyline points="764.0,611.0 734.0,611.0 734.0,611.0 704.0,611.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="604.0,113.0 650.0,69.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="604.0,179.0 622.0,179.0 622.0,363.0 604.0,363.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="288.0,363.0 311.0,363.0 311.0,69.0 334.0,69.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="288.0,503.0 298.0,503.0 298.0,69.0 334.0,69.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="604.0,525.0 635.0,525.0 635.0,69.0 604.0,69.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="650.0,503.0 627.0,503.0 627.0,503.0 604.0,503.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
 <g>
-<rect x="24" y="24" width="310" height="164" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="24" y="24" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="24" y="56" width="310" height="6" fill="#2d2d2d"/>
-<text x="179" y="49" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">reporte_escena_crimen</text>
-<text x="36" y="90.2" font-size="15" font-weight="normal" fill="#222222">fecha</text>
-<text x="322" y="90.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="36" y="116.2" font-size="15" font-weight="normal" fill="#222222">tipo</text>
-<text x="322" y="116.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="36" y="142.2" font-size="15" font-weight="normal" fill="#222222">descripcion</text>
-<text x="322" y="142.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="36" y="168.2" font-size="15" font-weight="normal" fill="#222222">ciudad</text>
-<text x="322" y="168.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
+<rect x="18" y="18" width="270" height="138" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="18" y="18" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="18" y="44" width="270" height="6" fill="#2d2d2d"/>
+<text x="153" y="39" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">reporte_escena_crimen</text>
+<text x="28" y="73.4" font-size="12" font-weight="normal" fill="#222222">fecha</text>
+<text x="278" y="73.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="28" y="95.4" font-size="12" font-weight="normal" fill="#222222">tipo</text>
+<text x="278" y="95.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="28" y="117.4" font-size="12" font-weight="normal" fill="#222222">descripcion</text>
+<text x="278" y="117.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="28" y="139.4" font-size="12" font-weight="normal" fill="#222222">ciudad</text>
+<text x="278" y="139.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
 </g>
 <g>
-<rect x="394" y="24" width="310" height="216" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="394" y="24" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="394" y="56" width="310" height="6" fill="#2d2d2d"/>
-<text x="549" y="49" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">persona</text>
-<text x="406" y="90.2" font-size="15" font-weight="bold" fill="#8a6d00">🔑 id</text>
-<text x="692" y="90.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="406" y="116.2" font-size="15" font-weight="normal" fill="#222222">nombre</text>
-<text x="692" y="116.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="406" y="142.2" font-size="15" font-weight="normal" fill="#1a56db">→ id_licencia</text>
-<text x="692" y="142.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="406" y="168.2" font-size="15" font-weight="normal" fill="#222222">numero_direccion</text>
-<text x="692" y="168.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="406" y="194.2" font-size="15" font-weight="normal" fill="#222222">calle</text>
-<text x="692" y="194.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="406" y="220.2" font-size="15" font-weight="normal" fill="#1a56db">→ dni</text>
-<text x="692" y="220.2" font-size="13" fill="#888888" text-anchor="end">CHAR</text>
+<rect x="334" y="18" width="270" height="182" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="334" y="18" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="334" y="44" width="270" height="6" fill="#2d2d2d"/>
+<text x="469" y="39" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">persona</text>
+<text x="344" y="73.4" font-size="12" font-weight="bold" fill="#8a6d00">🔑 id</text>
+<text x="594" y="73.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="344" y="95.4" font-size="12" font-weight="normal" fill="#222222">nombre</text>
+<text x="594" y="95.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="344" y="117.4" font-size="12" font-weight="normal" fill="#1a56db">→ id_licencia</text>
+<text x="594" y="117.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="344" y="139.4" font-size="12" font-weight="normal" fill="#222222">numero_direccion</text>
+<text x="594" y="139.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="344" y="161.4" font-size="12" font-weight="normal" fill="#222222">calle</text>
+<text x="594" y="161.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="344" y="183.4" font-size="12" font-weight="normal" fill="#1a56db">→ dni</text>
+<text x="594" y="183.4" font-size="11" fill="#888888" text-anchor="end">CHAR</text>
 </g>
 <g>
-<rect x="764" y="24" width="310" height="294" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="764" y="24" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="764" y="56" width="310" height="6" fill="#2d2d2d"/>
-<text x="919" y="49" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">licencia_conducir</text>
-<text x="776" y="90.2" font-size="15" font-weight="bold" fill="#8a6d00">🔑 id</text>
-<text x="1062" y="90.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="116.2" font-size="15" font-weight="normal" fill="#222222">edad</text>
-<text x="1062" y="116.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="142.2" font-size="15" font-weight="normal" fill="#222222">altura</text>
-<text x="1062" y="142.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="168.2" font-size="15" font-weight="normal" fill="#222222">color_ojos</text>
-<text x="1062" y="168.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="194.2" font-size="15" font-weight="normal" fill="#222222">color_cabello</text>
-<text x="1062" y="194.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="220.2" font-size="15" font-weight="normal" fill="#222222">genero</text>
-<text x="1062" y="220.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="246.2" font-size="15" font-weight="normal" fill="#222222">numero_patente</text>
-<text x="1062" y="246.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="272.2" font-size="15" font-weight="normal" fill="#222222">marca_auto</text>
-<text x="1062" y="272.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="298.2" font-size="15" font-weight="normal" fill="#222222">modelo_auto</text>
-<text x="1062" y="298.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
+<rect x="650" y="18" width="270" height="248" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="650" y="18" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="650" y="44" width="270" height="6" fill="#2d2d2d"/>
+<text x="785" y="39" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">licencia_conducir</text>
+<text x="660" y="73.4" font-size="12" font-weight="bold" fill="#8a6d00">🔑 id</text>
+<text x="910" y="73.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="660" y="95.4" font-size="12" font-weight="normal" fill="#222222">edad</text>
+<text x="910" y="95.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="660" y="117.4" font-size="12" font-weight="normal" fill="#222222">altura</text>
+<text x="910" y="117.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="660" y="139.4" font-size="12" font-weight="normal" fill="#222222">color_ojos</text>
+<text x="910" y="139.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="161.4" font-size="12" font-weight="normal" fill="#222222">color_cabello</text>
+<text x="910" y="161.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="183.4" font-size="12" font-weight="normal" fill="#222222">genero</text>
+<text x="910" y="183.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="205.4" font-size="12" font-weight="normal" fill="#222222">numero_patente</text>
+<text x="910" y="205.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="227.4" font-size="12" font-weight="normal" fill="#222222">marca_auto</text>
+<text x="910" y="227.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="249.4" font-size="12" font-weight="normal" fill="#222222">modelo_auto</text>
+<text x="910" y="249.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
 </g>
 <g>
-<rect x="24" y="378" width="310" height="112" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="24" y="378" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="24" y="410" width="310" height="6" fill="#2d2d2d"/>
-<text x="179" y="403" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">entrevista</text>
-<text x="36" y="444.2" font-size="15" font-weight="normal" fill="#1a56db">→ id_persona</text>
-<text x="322" y="444.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="36" y="470.2" font-size="15" font-weight="normal" fill="#222222">transcripcion</text>
-<text x="322" y="470.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
+<rect x="18" y="312" width="270" height="94" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="18" y="312" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="18" y="338" width="270" height="6" fill="#2d2d2d"/>
+<text x="153" y="333" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">entrevista</text>
+<text x="28" y="367.4" font-size="12" font-weight="normal" fill="#1a56db">→ id_persona</text>
+<text x="278" y="367.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="28" y="389.4" font-size="12" font-weight="normal" fill="#222222">transcripcion</text>
+<text x="278" y="389.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
 </g>
 <g>
-<rect x="394" y="378" width="310" height="112" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="394" y="378" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="394" y="410" width="310" height="6" fill="#2d2d2d"/>
-<text x="549" y="403" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">ingreso</text>
-<text x="406" y="444.2" font-size="15" font-weight="bold" fill="#8a6d00">🔑 dni</text>
-<text x="692" y="444.2" font-size="13" fill="#888888" text-anchor="end">CHAR</text>
-<text x="406" y="470.2" font-size="15" font-weight="normal" fill="#222222">ingreso_anual</text>
-<text x="692" y="470.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
+<rect x="334" y="312" width="270" height="94" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="334" y="312" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="334" y="338" width="270" height="6" fill="#2d2d2d"/>
+<text x="469" y="333" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">ingreso</text>
+<text x="344" y="367.4" font-size="12" font-weight="bold" fill="#8a6d00">🔑 dni</text>
+<text x="594" y="367.4" font-size="11" fill="#888888" text-anchor="end">CHAR</text>
+<text x="344" y="389.4" font-size="12" font-weight="normal" fill="#222222">ingreso_anual</text>
+<text x="594" y="389.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
 </g>
 <g>
-<rect x="764" y="378" width="310" height="112" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="764" y="378" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="764" y="410" width="310" height="6" fill="#2d2d2d"/>
-<text x="919" y="403" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">solucion</text>
-<text x="776" y="444.2" font-size="15" font-weight="normal" fill="#222222">usuario</text>
-<text x="1062" y="444.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="470.2" font-size="15" font-weight="normal" fill="#222222">valor</text>
-<text x="1062" y="470.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
+<rect x="18" y="452" width="270" height="138" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="18" y="452" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="18" y="478" width="270" height="6" fill="#2d2d2d"/>
+<text x="153" y="473" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">registro_evento_facebook</text>
+<text x="28" y="507.4" font-size="12" font-weight="normal" fill="#1a56db">→ id_persona</text>
+<text x="278" y="507.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="28" y="529.4" font-size="12" font-weight="normal" fill="#222222">id_evento</text>
+<text x="278" y="529.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="28" y="551.4" font-size="12" font-weight="normal" fill="#222222">nombre_evento</text>
+<text x="278" y="551.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="28" y="573.4" font-size="12" font-weight="normal" fill="#222222">fecha</text>
+<text x="278" y="573.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
 </g>
 <g>
-<rect x="24" y="550" width="310" height="164" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="24" y="550" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="24" y="582" width="310" height="6" fill="#2d2d2d"/>
-<text x="179" y="575" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">registro_evento_facebook</text>
-<text x="36" y="616.2" font-size="15" font-weight="normal" fill="#1a56db">→ id_persona</text>
-<text x="322" y="616.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="36" y="642.2" font-size="15" font-weight="normal" fill="#222222">id_evento</text>
-<text x="322" y="642.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="36" y="668.2" font-size="15" font-weight="normal" fill="#222222">nombre_evento</text>
-<text x="322" y="668.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="36" y="694.2" font-size="15" font-weight="normal" fill="#222222">fecha</text>
-<text x="322" y="694.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
+<rect x="334" y="452" width="270" height="160" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="334" y="452" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="334" y="478" width="270" height="6" fill="#2d2d2d"/>
+<text x="469" y="473" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">socio_gimnasio</text>
+<text x="344" y="507.4" font-size="12" font-weight="bold" fill="#8a6d00">🔑 id</text>
+<text x="594" y="507.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="344" y="529.4" font-size="12" font-weight="normal" fill="#1a56db">→ id_persona</text>
+<text x="594" y="529.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="344" y="551.4" font-size="12" font-weight="normal" fill="#222222">nombre</text>
+<text x="594" y="551.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="344" y="573.4" font-size="12" font-weight="normal" fill="#222222">fecha_inicio_membresia</text>
+<text x="594" y="573.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="344" y="595.4" font-size="12" font-weight="normal" fill="#222222">estado_membresia</text>
+<text x="594" y="595.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
 </g>
 <g>
-<rect x="394" y="550" width="310" height="190" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="394" y="550" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="394" y="582" width="310" height="6" fill="#2d2d2d"/>
-<text x="549" y="575" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">socio_gimnasio</text>
-<text x="406" y="616.2" font-size="15" font-weight="bold" fill="#8a6d00">🔑 id</text>
-<text x="692" y="616.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="406" y="642.2" font-size="15" font-weight="normal" fill="#1a56db">→ id_persona</text>
-<text x="692" y="642.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="406" y="668.2" font-size="15" font-weight="normal" fill="#222222">nombre</text>
-<text x="692" y="668.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="406" y="694.2" font-size="15" font-weight="normal" fill="#222222">fecha_inicio_membresia</text>
-<text x="692" y="694.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="406" y="720.2" font-size="15" font-weight="normal" fill="#222222">estado_membresia</text>
-<text x="692" y="720.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-</g>
-<g>
-<rect x="764" y="550" width="310" height="164" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
-<rect x="764" y="550" width="310" height="38" fill="#2d2d2d" rx="4"/>
-<rect x="764" y="582" width="310" height="6" fill="#2d2d2d"/>
-<text x="919" y="575" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">registro_entrada_gimnasio</text>
-<text x="776" y="616.2" font-size="15" font-weight="normal" fill="#1a56db">→ id_membresia</text>
-<text x="1062" y="616.2" font-size="13" fill="#888888" text-anchor="end">TEXT</text>
-<text x="776" y="642.2" font-size="15" font-weight="normal" fill="#222222">fecha_entrada</text>
-<text x="1062" y="642.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="668.2" font-size="15" font-weight="normal" fill="#222222">hora_entrada</text>
-<text x="1062" y="668.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
-<text x="776" y="694.2" font-size="15" font-weight="normal" fill="#222222">hora_salida</text>
-<text x="1062" y="694.2" font-size="13" fill="#888888" text-anchor="end">INTEGER</text>
+<rect x="650" y="452" width="270" height="138" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="4"/>
+<rect x="650" y="452" width="270" height="32" fill="#2d2d2d" rx="4"/>
+<rect x="650" y="478" width="270" height="6" fill="#2d2d2d"/>
+<text x="785" y="473" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">registro_entrada_gimnasio</text>
+<text x="660" y="507.4" font-size="12" font-weight="normal" fill="#1a56db">→ id_membresia</text>
+<text x="910" y="507.4" font-size="11" fill="#888888" text-anchor="end">TEXT</text>
+<text x="660" y="529.4" font-size="12" font-weight="normal" fill="#222222">fecha_entrada</text>
+<text x="910" y="529.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="660" y="551.4" font-size="12" font-weight="normal" fill="#222222">hora_entrada</text>
+<text x="910" y="551.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
+<text x="660" y="573.4" font-size="12" font-weight="normal" fill="#222222">hora_salida</text>
+<text x="910" y="573.4" font-size="11" fill="#888888" text-anchor="end">INTEGER</text>
 </g>
 </svg>
