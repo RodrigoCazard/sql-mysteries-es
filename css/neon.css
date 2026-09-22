@@ -16,6 +16,13 @@
 
 * { box-sizing: border-box; }
 
+html {
+    /* Bumped up from the 16px browser default so every rem-based size
+       in this file (buttons, panels, modal text, etc.) reads larger,
+       since the game is meant to be legible from a distance. */
+    font-size: 19px;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -65,7 +72,7 @@ html, body {
 
 .neon-title {
     font-family: "Courier New", monospace;
-    font-size: 2.1rem;
+    font-size: 2.7rem;
     letter-spacing: 2px;
     line-height: 1.25;
     color: var(--neon-cyan);
@@ -76,7 +83,7 @@ html, body {
 .landing-tagline {
     color: var(--neon-pink);
     text-shadow: 0 0 10px rgba(255, 62, 200, 0.6);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     letter-spacing: 1px;
     margin: 0 0 1.5rem;
 }
@@ -85,7 +92,7 @@ html, body {
     color: var(--text);
     line-height: 1.65;
     margin: 0 0 2.25rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .landing-text strong {
@@ -96,7 +103,7 @@ html, body {
 
 .neon-btn {
     font-family: "Courier New", monospace;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: transparent;
@@ -159,7 +166,7 @@ html, body {
 
 .case-header h1 {
     font-family: "Courier New", monospace;
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
     color: var(--text);
     margin: 0;
@@ -178,12 +185,12 @@ html, body {
 
 .case-header-actions .neon-btn {
     padding: 0.6rem 1.1rem;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
 }
 
 #back-btn {
     padding: 0.6rem 1.1rem;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
 }
 
 /* ---------- Two-panel layout: diagram + query console ---------- */
@@ -210,7 +217,7 @@ html, body {
 
 .panel h2 {
     font-family: "Courier New", monospace;
-    font-size: 0.9rem;
+    font-size: 1.15rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--neon-cyan);
@@ -221,7 +228,7 @@ html, body {
 }
 
 .panel h2 .tag {
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     background: rgba(47, 251, 255, 0.15);
     border: 1px solid var(--border);
     color: var(--neon-cyan);
@@ -231,7 +238,7 @@ html, body {
 
 .panel-hint {
     color: var(--text-dim);
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 0 0 0.85rem;
 }
 
@@ -256,7 +263,7 @@ html, body {
 
 #schema-diagram {
     display: block;
-    min-width: 780px;
+    min-width: 940px;
     width: 100%;
     height: auto;
 }
@@ -278,7 +285,7 @@ sql-exercise .sqlExHomeDiv {
 
 sql-exercise .sqlExComment {
     color: var(--text-dim);
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
 sql-exercise .sqlExOutputArea {
@@ -288,6 +295,7 @@ sql-exercise .sqlExOutputArea {
     padding: 0.85rem;
     margin-top: 0.85rem;
     max-width: 100%;
+    font-size: 1rem;
     color: var(--text);
 }
 
@@ -305,7 +313,7 @@ sql-exercise .sqlExInputArea input[type="button"] {
     padding: 0.45rem 1rem;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.78rem;
+    font-size: 0.95rem;
 }
 
 sql-exercise .sqlExInputArea input[type="submit"]:hover,
@@ -323,7 +331,7 @@ sql-exercise .sqlExInputArea input:disabled {
 
 .datatable {
     border-color: rgba(255, 255, 255, 0.15);
-    font-size: 0.82rem;
+    font-size: 1rem;
     color: var(--text);
     border-collapse: collapse;
     width: 100%;
@@ -336,7 +344,7 @@ sql-exercise .sqlExInputArea input:disabled {
 
 .datatable td, .datatable th {
     border-color: rgba(255, 255, 255, 0.1);
-    padding: 4px 8px;
+    padding: 6px 10px;
 }
 
 /* ---------- CodeMirror neon theme ---------- */
@@ -346,6 +354,7 @@ sql-exercise .sqlExInputArea input:disabled {
     color: #d7e6f5;
     border: 1px solid rgba(47, 251, 255, 0.25);
     border-radius: 8px;
+    font-size: 1.1rem;
 }
 
 .cm-s-neon .CodeMirror-gutters {
@@ -384,8 +393,8 @@ sql-exercise .sqlExInputArea input:disabled {
     background: var(--bg-panel);
     border: 1px solid var(--neon-red);
     border-radius: 12px;
-    padding: 2rem;
-    max-width: 420px;
+    padding: 2.25rem;
+    max-width: 480px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
@@ -408,6 +417,7 @@ sql-exercise .sqlExInputArea input:disabled {
 .modal-box h2 {
     color: var(--neon-red);
     font-family: "Courier New", monospace;
+    font-size: 1.7rem;
     text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
     margin-top: 0;
 }
@@ -415,7 +425,7 @@ sql-exercise .sqlExInputArea input:disabled {
 
 .modal-box p {
     color: var(--text-dim);
-    font-size: 0.88rem;
+    font-size: 1.15rem;
     line-height: 1.5;
 }
 
@@ -426,7 +436,7 @@ sql-exercise .sqlExInputArea input:disabled {
     background: none;
     border: none;
     color: var(--text-dim);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     cursor: pointer;
 }
 
@@ -437,9 +447,10 @@ sql-exercise .sqlExInputArea input:disabled {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--text);
-    padding: 0.6rem 0.75rem;
+    padding: 0.7rem 0.85rem;
     border-radius: 6px;
     font-family: "Courier New", monospace;
+    font-size: 1.15rem;
     margin-bottom: 1rem;
 }
 
@@ -449,11 +460,11 @@ sql-exercise .sqlExInputArea input:disabled {
     box-shadow: 0 0 8px rgba(255, 77, 109, 0.4);
 }
 
-#accuse-result { margin-top: 1.25rem; text-align: center; font-size: 1.08rem; line-height: 1.5; }
+#accuse-result { margin-top: 1.25rem; text-align: center; font-size: 1.3rem; line-height: 1.5; }
 
 .case-closed {
     font-family: "Courier New", monospace;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--neon-red);
     letter-spacing: 3px;
@@ -468,13 +479,13 @@ sql-exercise .sqlExInputArea input:disabled {
 
 .accuse-echo { color: var(--text); margin-bottom: 0.5rem; }
 .accuse-echo strong { color: var(--neon-amber); }
-.accuse-note { color: var(--text-dim); font-size: 0.9rem; }
-.accuse-warning { color: var(--neon-red); font-size: 1.08rem; }
-.accuse-success { color: #7cffb2; font-size: 1.08rem; margin-bottom: 0.5rem; }
+.accuse-note { color: var(--text-dim); font-size: 1.05rem; }
+.accuse-warning { color: var(--neon-red); font-size: 1.3rem; }
+.accuse-success { color: #7cffb2; font-size: 1.3rem; margin-bottom: 0.5rem; }
 
 #accuse-lives {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     letter-spacing: 0.3rem;
     margin: 0 0 1rem;
 }
@@ -492,7 +503,7 @@ sql-exercise .sqlExInputArea input:disabled {
     padding: 1rem 1.5rem 1.75rem;
     text-align: center;
     color: var(--text-dim);
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
