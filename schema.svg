@@ -5,7 +5,7 @@
     <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a9a9a"/>
   </marker>
 </defs>
-<polyline points="590.0,108.0 615.0,108.0 615.0,68.0 640.0,68.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="590.0,108.0 640.0,68.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
 <polyline points="590.0,168.0 608.0,168.0 608.0,346.0 590.0,346.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
 <polyline points="280.0,346.0 305.0,346.0 305.0,68.0 330.0,68.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
 <polyline points="280.0,484.0 291.0,484.0 291.0,68.0 330.0,68.0" fill="none" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
