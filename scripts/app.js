@@ -11,87 +11,31 @@
         workspace.classList.remove('hidden');
     });
 
-    // ---- Schema diagram toggle ----
-    var showSchemaBtn = document.getElementById('show-schema');
-    var schemaImg = document.getElementById('schema-diagram');
-    showSchemaBtn.addEventListener('click', function () {
-        var isShown = schemaImg.classList.toggle('show');
-        showSchemaBtn.textContent = isShown
-            ? '◆ Ocultar diagrama del esquema'
-            : '◇ Ver diagrama del esquema completo';
+    // ---- Generic modal helpers ----
+    function openModal(modal, focusEl) {
+        modal.classList.remove('hidden');
+        if (focusEl) { focusEl.focus(); }
+    }
+    function closeModal(modal) {
+        modal.classList.add('hidden');
+    }
+
+    // ---- Query console modal ----
+    var queryOpenBtn = document.getElementById('query-open');
+    var queryModal = document.getElementById('query-modal');
+    var queryCloseBtn = document.getElementById('query-close');
+
+    queryOpenBtn.addEventListener('click', function () {
+        openModal(queryModal);
+        // CodeMirror needs a refresh after becoming visible to size correctly.
+        var cmWrapper = queryModal.querySelector('.CodeMirror');
+        if (cmWrapper && cmWrapper.CodeMirror) {
+            setTimeout(function () { cmWrapper.CodeMirror.refresh(); }, 0);
+        }
     });
-
-    // ---- Table browser (left panel) ----
-    var tableListEl = document.getElementById('table-list');
-    var tableColumnsEl = document.getElementById('table-columns');
-    var activeTableButton = null;
-
-    function renderTableList(names) {
-        tableListEl.innerHTML = '';
-        names.forEach(function (name) {
-            var li = document.createElement('li');
-            var btn = document.createElement('button');
-            btn.className = 'table-btn';
-            btn.textContent = name;
-            btn.addEventListener('click', function () {
-                if (activeTableButton) { activeTableButton.classList.remove('active'); }
-                btn.classList.add('active');
-                activeTableButton = btn;
-                showTableColumns(name);
-            });
-            li.appendChild(btn);
-            tableListEl.appendChild(li);
-        });
-    }
-
-    function showTableColumns(tableName) {
-        tableColumnsEl.innerHTML = '<div class="loading">Cargando columnas…</div>';
-        query('PRAGMA table_info(' + tableName + ');', function (colResults) {
-            query('PRAGMA foreign_key_list(' + tableName + ');', function (fkResults) {
-                var fkColumns = {};
-                if (fkResults.length) {
-                    var fkCols = fkResults[0].columns;
-                    var fromIdx = fkCols.indexOf('from');
-                    var tableIdx = fkCols.indexOf('table');
-                    var toIdx = fkCols.indexOf('to');
-                    fkResults[0].values.forEach(function (row) {
-                        fkColumns[row[fromIdx]] = { table: row[tableIdx], to: row[toIdx] };
-                    });
-                }
-
-                var cols = colResults.length ? colResults[0].values : [];
-                var colNames = colResults.length ? colResults[0].columns : [];
-                var nameIdx = colNames.indexOf('name');
-                var typeIdx = colNames.indexOf('type');
-                var pkIdx = colNames.indexOf('pk');
-
-                var html = '<div class="table-columns-title">' + tableName + '</div><ul class="column-list">';
-                cols.forEach(function (row) {
-                    var colName = row[nameIdx];
-                    var colType = row[typeIdx];
-                    var isPk = row[pkIdx] > 0;
-                    var fk = fkColumns[colName];
-                    var icon = isPk ? '<span class="key-icon" title="Clave primaria">🔑</span>' :
-                        fk ? '<span class="fk-icon" title="Referencia a ' + fk.table + '.' + fk.to + '">→</span>' : '<span class="col-spacer"></span>';
-                    html += '<li class="' + (isPk ? 'is-pk' : fk ? 'is-fk' : '') + '">' +
-                        icon + '<span class="col-name">' + colName + '</span>' +
-                        '<span class="col-type">' + colType + '</span></li>';
-                });
-                html += '</ul>';
-                tableColumnsEl.innerHTML = html;
-            }, function () {
-                tableColumnsEl.innerHTML = '<div class="loading">No se pudo leer la tabla.</div>';
-            });
-        }, function () {
-            tableColumnsEl.innerHTML = '<div class="loading">No se pudo leer la tabla.</div>';
-        });
-    }
-
-    document.addEventListener('db-ready', function () {
-        query('SELECT nombre_tabla FROM tablas;', function (res) {
-            var names = res.length ? res[0].values.map(function (row) { return row[0]; }) : [];
-            renderTableList(names);
-        });
+    queryCloseBtn.addEventListener('click', function () { closeModal(queryModal); });
+    queryModal.addEventListener('click', function (e) {
+        if (e.target === queryModal) { closeModal(queryModal); }
     });
 
     // ---- Accusation modal ----
@@ -102,18 +46,10 @@
     var accuseSubmitBtn = document.getElementById('accuse-submit');
     var accuseResult = document.getElementById('accuse-result');
 
-    function openModal() {
-        accuseModal.classList.remove('hidden');
-        accuseInput.focus();
-    }
-    function closeModal() {
-        accuseModal.classList.add('hidden');
-    }
-
-    accuseOpenBtn.addEventListener('click', openModal);
-    accuseCloseBtn.addEventListener('click', closeModal);
+    accuseOpenBtn.addEventListener('click', function () { openModal(accuseModal, accuseInput); });
+    accuseCloseBtn.addEventListener('click', function () { closeModal(accuseModal); });
     accuseModal.addEventListener('click', function (e) {
-        if (e.target === accuseModal) { closeModal(); }
+        if (e.target === accuseModal) { closeModal(accuseModal); }
     });
 
     function submitAccusation() {
@@ -137,5 +73,12 @@
     accuseSubmitBtn.addEventListener('click', submitAccusation);
     accuseInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { submitAccusation(); }
+    });
+
+    // ---- Close modals with Escape ----
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') { return; }
+        if (!queryModal.classList.contains('hidden')) { closeModal(queryModal); }
+        if (!accuseModal.classList.contains('hidden')) { closeModal(accuseModal); }
     });
 })();
