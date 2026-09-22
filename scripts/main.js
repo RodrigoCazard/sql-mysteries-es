@@ -13,6 +13,7 @@ function loadData(dbFile) {
            console.log('DB initialization successful');
            document.querySelectorAll("input.sql-exercise-submit").forEach(
              (button) => {button.disabled = false;});
+           document.dispatchEvent(new Event('db-ready'));
          });
        } else {
          console.log('DB initialization failed');
@@ -244,7 +245,7 @@ class sqlExercise extends HTMLElement {
       lineNumbers: true,
       textWrapping: false,
       autoRefresh: true,
-      theme: 'neat',
+      theme: 'neon',
       viewportMargin: Infinity
     });
 
