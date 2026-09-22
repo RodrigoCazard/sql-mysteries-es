@@ -449,11 +449,11 @@ sql-exercise .sqlExInputArea input:disabled {
     box-shadow: 0 0 8px rgba(255, 77, 109, 0.4);
 }
 
-#accuse-result { margin-top: 1.25rem; text-align: center; }
+#accuse-result { margin-top: 1.25rem; text-align: center; font-size: 1.08rem; line-height: 1.5; }
 
 .case-closed {
     font-family: "Courier New", monospace;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: var(--neon-red);
     letter-spacing: 3px;
@@ -468,9 +468,9 @@ sql-exercise .sqlExInputArea input:disabled {
 
 .accuse-echo { color: var(--text); margin-bottom: 0.5rem; }
 .accuse-echo strong { color: var(--neon-amber); }
-.accuse-note { color: var(--text-dim); font-size: 0.78rem; }
-.accuse-warning { color: var(--neon-red); font-size: 0.88rem; }
-.accuse-success { color: #7cffb2; font-size: 0.88rem; margin-bottom: 0.5rem; }
+.accuse-note { color: var(--text-dim); font-size: 0.9rem; }
+.accuse-warning { color: var(--neon-red); font-size: 1.08rem; }
+.accuse-success { color: #7cffb2; font-size: 1.08rem; margin-bottom: 0.5rem; }
 
 #accuse-lives {
     text-align: center;
