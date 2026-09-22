@@ -71,74 +71,27 @@
             <div class="grid-item">
                 <img src="174092-clue-illustration.png" class="img-rounded" alt="Una ilustración decorativa de un detective mirando un tablero de evidencias.">
                 <p>
-                    ¡Ha habido un asesinato en SQL City! El Misterio del Asesinato en SQL está diseñado tanto para ser una lección autoguiada para aprender conceptos y comandos de SQL como un juego divertido para que usuarios experimentados de SQL resuelvan un crimen intrigante.
+                    ¡Ha habido un <strong>asesinato</strong> en <strong>SQL City</strong> el <strong>15 de enero de 2018</strong>! Tenés acceso a la base de datos de la policía. Usá SQL para investigar y descubrir quién lo hizo.
+                </p>
+                <p>
+                    ¿Nunca usaste SQL? <a href="walkthrough.html">Probá primero el tutorial guiado</a>. Si ya sabés SQL, arrancá directamente acá abajo.
                 </p>
             </div>
         </div>
 
         <div class="grid">
             <div class="grid-item">
-                <h2>¿Nuevo en SQL?</h2>
+                <h2 id="experienced">Explorá la base de datos</h2>
                 <p>
-                    Este ejercicio está pensado más como una forma de practicar habilidades de SQL que como un tutorial completo. Si nunca usaste SQL, <a href="walkthrough.html">probá el tutorial guiado</a>. Si realmente querés aprender mucho sobre SQL, tal vez prefieras un
-                    tutorial completo como <a href="https://selectstarsql.com/">Select Star SQL.</a>
-
-                </p>
-                <p>Si ya te sentís cómodo con SQL, podés <a href="#experienced">ir directo abajo</a>!</p>
-            </div>
-        </div>
-
-
-        <div class="grid">
-            <div class="grid-item">
-                <h2 id="experienced">Sabuesos de SQL experimentados, empiecen acá</h2>
-                <p>
-                    Ha ocurrido un crimen y el detective necesita tu ayuda. El detective te dio el reporte de la escena del crimen, pero de algún modo lo perdiste. Recordás vagamente que el crimen fue un <strong>​asesinato​</strong> que ocurrió en algún momento del <strong>15 de enero de 2018​</strong> y que tuvo lugar en <strong>​SQL City​</strong>. Empezá recuperando el reporte correspondiente de la base de datos del departamento de policía.
+                    <a id="show-schema">Hacé clic acá</a> para ver el diagrama del esquema con todas las tablas.
+                    <img id="experienced-schema" src="schema.svg" width='920' height='604'>
                 </p>
 
-                <h3>Explorando la estructura de la base de datos</h3>
-
-                <p>
-                    Los usuarios experimentados de SQL a menudo pueden usar consultas para inferir la estructura de una base de datos. Pero cada sistema de bases de datos maneja esta información de forma distinta. El Misterio del Asesinato en SQL está construido con SQLite. Usá este comando SQL para encontrar las tablas
-                    de la base de datos del misterio.
-                </p>
-
-                <sql-exercise data-question="Ejecutá esta consulta para encontrar los nombres de las tablas en esta base de datos." data-comment="Este comando es específico de SQLite. Para otras bases de datos, tendrás que aprender su sintaxis particular." data-default-text="SELECT name
+                <sql-exercise data-question="Ejecutá esta consulta para ver los nombres de las tablas de la base de datos." data-comment="Este comando es específico de SQLite." data-default-text="SELECT name
   FROM sqlite_master
  where type = 'table'"></sql-exercise>
 
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="grid-item">
-                <p>
-                    Además de conocer los nombres de las tablas, necesitás saber cómo está estructurada cada una. La forma de hacerlo también depende de la tecnología de base de datos que uses. Así se hace con SQLite.
-                </p>
-
-                <sql-exercise data-question="Ejecutá esta consulta para ver la estructura de la tabla `crime_scene_report`" data-comment="Cambiá el valor de 'name' para ver la estructura de las otras tablas que descubriste con la consulta anterior." data-default-text="SELECT sql
-  FROM sqlite_master
- where name = 'crime_scene_report'"></sql-exercise>
-
-            </div>
-        </div>
-
-
-        <div class="grid">
-            <div class="grid-item">
-                <h3>¡El resto depende de vos!</h3>
-                <p>
-                    Si te sentís realmente cómodo con SQL, probablemente puedas resolverlo desde acá.
-                </p>
-                <p>
-                    Pero <a id="show-schema">hacé clic acá</a> para mostrar el diagrama del esquema.
-                    <img id="experienced-schema" src="schema.png" width='1002' height='491'>
-                </p>
-                <p>
-                    Y siempre podés ir al <a href="walkthrough.html">tutorial guiado</a>.
-                </p>
-
-                <sql-exercise data-question="Usá tu conocimiento del esquema de la base de datos y de los comandos SQL para descubrir quién cometió el asesinato." data-comment="Cuando creas que sabés la respuesta, pasá a la siguiente sección." data-default-text="
+                <sql-exercise data-question="Usá tu conocimiento del esquema y de SQL para descubrir quién cometió el asesinato." data-comment="Podés seguir editando este mismo cuadro y anotar tus resultados en el camino. Cuando creas que sabés la respuesta, pasá a la siguiente sección." data-default-text="
 
 
 
@@ -152,9 +105,9 @@
         <div id="check-solution" class="grid">
             <div class="grid-item">
                 <h3>Comprobá tu solución</h3>
-                <sql-exercise data-question="¿Encontraste al asesino?" data-comment="" data-default-text="INSERT INTO solution VALUES (1, 'Escribí acá el nombre de la persona que encontraste');
+                <sql-exercise data-question="¿Encontraste al asesino?" data-comment="" data-default-text="INSERT INTO solucion VALUES (1, 'Escribí acá el nombre de la persona que encontraste');
 
-        SELECT value FROM solution;"></sql-exercise>
+        SELECT valor FROM solucion;"></sql-exercise>
             </div>
         </div>
 
