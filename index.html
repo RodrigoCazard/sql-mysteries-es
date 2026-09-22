@@ -54,6 +54,7 @@
     <!-- WORKSPACE -->
     <div id="workspace" class="hidden">
         <header class="case-header">
+            <button id="back-btn" class="neon-btn ghost">← Volver</button>
             <h1>EXPEDIENTE: <span>ASESINATO EN SQL CITY</span></h1>
             <div class="case-header-actions">
                 <button id="accuse-open" class="neon-btn danger">🚨 Acusar a un sospechoso</button>
@@ -74,10 +75,9 @@
                 <p class="panel-hint">Escribí tu consulta SQL mirando el diagrama de la izquierda y ejecutala para revisar las pistas.</p>
                 <sql-exercise
                     data-question=""
-                    data-comment="Podés consultar cualquier tabla del diagrama. Andá anotando lo que descubras."
+                    data-comment="Podés consultar cualquier tabla del diagrama. Empezá por el reporte de la escena del crimen: sabés que fue un asesinato en SQL City. Andá anotando lo que descubras."
                     data-default-text="SELECT * FROM reporte_escena_crimen
-WHERE tipo = 'murder'
-  AND ciudad = 'SQL City';"></sql-exercise>
+LIMIT 5;"></sql-exercise>
             </section>
         </main>
 

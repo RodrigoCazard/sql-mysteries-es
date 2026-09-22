@@ -1,14 +1,20 @@
 (function () {
     'use strict';
 
-    // ---- Landing -> Workspace ----
+    // ---- Landing <-> Workspace ----
     var landing = document.getElementById('landing');
     var workspace = document.getElementById('workspace');
     var startBtn = document.getElementById('start-btn');
+    var backBtn = document.getElementById('back-btn');
 
     startBtn.addEventListener('click', function () {
         landing.classList.add('hidden');
         workspace.classList.remove('hidden');
+    });
+
+    backBtn.addEventListener('click', function () {
+        workspace.classList.add('hidden');
+        landing.classList.remove('hidden');
     });
 
     // ---- Generic modal helpers ----

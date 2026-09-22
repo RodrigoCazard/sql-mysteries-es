@@ -125,6 +125,19 @@ html, body {
     box-shadow: 0 0 16px rgba(255, 77, 109, 0.6) inset, 0 0 22px rgba(255, 77, 109, 0.5);
 }
 
+.neon-btn.ghost {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-dim);
+    box-shadow: none;
+}
+
+.neon-btn.ghost:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    background: rgba(47, 251, 255, 0.08);
+    box-shadow: 0 0 10px rgba(47, 251, 255, 0.3);
+}
+
 /* ---------- Workspace layout ---------- */
 
 #workspace {
@@ -164,6 +177,11 @@ html, body {
 }
 
 .case-header-actions .neon-btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+}
+
+#back-btn {
     padding: 0.6rem 1.1rem;
     font-size: 0.8rem;
 }
