@@ -6,7 +6,7 @@
 
 Esta es una **traducción al español** del proyecto original [SQL Murder Mystery](https://github.com/NUKnightLab/sql-mysteries) de Knight Lab (Northwestern University).
 
-Si solo querés resolver el misterio, entrá a **[la página del juego](https://rodrigocazard.github.io/sql-mysteries-es/)**. Si sos nuevo en SQL, quizás quieras empezar por [nuestro tutorial guiado](https://rodrigocazard.github.io/sql-mysteries-es/walkthrough.html). No te va a enseñar todo sobre SQL, pero sí lo suficiente para resolver el misterio.
+Entrá a **[la página del juego](https://rodrigocazard.github.io/sql-mysteries-es/)** para jugar directamente desde el navegador. Si buscás una introducción más guiada a SQL antes de arrancar, el [proyecto original en inglés](https://mystery.knightlab.com/walkthrough.html) tiene un tutorial paso a paso.
 
 ## ¿Qué más hay acá?
 
@@ -29,14 +29,14 @@ Antes de construir la versión basada en web, este proyecto se diseñó para que
 Escribí las siguientes consultas en tu entorno SQL para comprobar si encontraste al asesino correcto:
 
 ```SQL
-INSERT INTO solution VALUES (1, "Escribí acá el nombre de la persona que encontraste");
+INSERT INTO solucion VALUES (1, "Escribí acá el nombre de la persona que encontraste");
 
-SELECT value FROM solution;
+SELECT valor FROM solucion;
 ```
 
 ## Alcance de esta traducción
 
-Se tradujo toda la interfaz del juego (páginas, tutorial guiado, botones y mensajes) y el contenido real del caso: el reporte de la escena del crimen, las entrevistas de los dos testigos y la confesión del asesino a sueldo. El resto de la base de datos (miles de reportes y entrevistas señuelo, usados a propósito como "ruido" para que el caso real sea difícil de encontrar) se dejó en inglés, ya que es texto de relleno sin relación con el caso y no afecta la resolución del misterio.
+Se tradujo la interfaz del juego, los nombres de todas las tablas y columnas de la base de datos, y el contenido real del caso: el reporte de la escena del crimen, las entrevistas de los dos testigos y la confesión del asesino a sueldo. El resto de la base de datos (miles de reportes y entrevistas señuelo, usados a propósito como "ruido" para que el caso real sea difícil de encontrar) se dejó en inglés, ya que es texto de relleno sin relación con el caso y no afecta la resolución del misterio.
 
 ## Autores originales
 
