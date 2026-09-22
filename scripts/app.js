@@ -20,24 +20,6 @@
         modal.classList.add('hidden');
     }
 
-    // ---- Query console modal ----
-    var queryOpenBtn = document.getElementById('query-open');
-    var queryModal = document.getElementById('query-modal');
-    var queryCloseBtn = document.getElementById('query-close');
-
-    queryOpenBtn.addEventListener('click', function () {
-        openModal(queryModal);
-        // CodeMirror needs a refresh after becoming visible to size correctly.
-        var cmWrapper = queryModal.querySelector('.CodeMirror');
-        if (cmWrapper && cmWrapper.CodeMirror) {
-            setTimeout(function () { cmWrapper.CodeMirror.refresh(); }, 0);
-        }
-    });
-    queryCloseBtn.addEventListener('click', function () { closeModal(queryModal); });
-    queryModal.addEventListener('click', function (e) {
-        if (e.target === queryModal) { closeModal(queryModal); }
-    });
-
     // ---- Accusation modal ----
     var accuseOpenBtn = document.getElementById('accuse-open');
     var accuseModal = document.getElementById('accuse-modal');
@@ -75,10 +57,9 @@
         if (e.key === 'Enter') { submitAccusation(); }
     });
 
-    // ---- Close modals with Escape ----
+    // ---- Close modal with Escape ----
     document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape') { return; }
-        if (!queryModal.classList.contains('hidden')) { closeModal(queryModal); }
         if (!accuseModal.classList.contains('hidden')) { closeModal(accuseModal); }
     });
 })();

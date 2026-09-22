@@ -56,21 +56,29 @@
         <header class="case-header">
             <h1>EXPEDIENTE: <span>ASESINATO EN SQL CITY</span></h1>
             <div class="case-header-actions">
-                <button id="query-open" class="neon-btn">🖥️ Consola de investigación</button>
                 <button id="accuse-open" class="neon-btn danger">🚨 Acusar a un sospechoso</button>
             </div>
         </header>
 
-        <main class="board">
-            <div class="board-frame">
-                <img id="schema-diagram" src="schema.svg" alt="Diagrama de la base de datos: tablas, columnas y relaciones entre ellas">
-            </div>
-            <p class="board-legend">
-                <span>🔑 clave primaria</span>
-                <span>→ clave foránea</span>
-                <span class="board-legend-sep">·</span>
-                <span>Usá la <strong>consola de investigación</strong> para consultar cualquiera de estas tablas.</span>
-            </p>
+        <main class="panels">
+            <section class="panel db-panel">
+                <h2><span class="tag">01</span> Base de datos</h2>
+                <p class="panel-hint">🔑 clave primaria &nbsp;·&nbsp; → clave foránea</p>
+                <div class="diagram-scroll">
+                    <img id="schema-diagram" src="schema.svg" alt="Diagrama de la base de datos: tablas, columnas y relaciones entre ellas">
+                </div>
+            </section>
+
+            <section class="panel query-panel">
+                <h2><span class="tag">02</span> Consola de investigación</h2>
+                <p class="panel-hint">Escribí tu consulta SQL mirando el diagrama de la izquierda y ejecutala para revisar las pistas.</p>
+                <sql-exercise
+                    data-question=""
+                    data-comment="Podés consultar cualquier tabla del diagrama. Andá anotando lo que descubras."
+                    data-default-text="SELECT * FROM reporte_escena_crimen
+WHERE tipo = 'murder'
+  AND ciudad = 'SQL City';"></sql-exercise>
+            </section>
         </main>
 
         <footer class="case-footer">
@@ -78,21 +86,6 @@
                 Traducción al español no oficial del <a href="https://github.com/NUKnightLab/sql-mysteries">SQL Murder Mystery</a> original, creado por Joon Park y Cathy He en Knight Lab. Código bajo Licencia MIT, texto bajo Creative Commons CC BY-SA 4.0.
             </span>
         </footer>
-    </div>
-
-    <!-- QUERY CONSOLE MODAL -->
-    <div id="query-modal" class="modal-overlay hidden">
-        <div class="modal-box wide">
-            <button id="query-close" class="modal-close">✕</button>
-            <h2 class="query-title">🖥️ Consola de investigación</h2>
-            <p>Escribí tu consulta SQL y ejecutala para revisar las pistas.</p>
-            <sql-exercise
-                data-question=""
-                data-comment="Podés consultar cualquier tabla del diagrama. Andá anotando lo que descubras."
-                data-default-text="SELECT * FROM reporte_escena_crimen
-WHERE tipo = 'murder'
-  AND ciudad = 'SQL City';"></sql-exercise>
-        </div>
     </div>
 
     <!-- ACCUSATION MODAL -->

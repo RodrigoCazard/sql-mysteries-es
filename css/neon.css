@@ -168,57 +168,80 @@ html, body {
     font-size: 0.8rem;
 }
 
-/* ---------- Investigation board (full-screen schema view) ---------- */
+/* ---------- Two-panel layout: diagram + query console ---------- */
 
-.board {
+.panels {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1.5rem;
+    align-items: stretch;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
     min-height: 0;
 }
 
-.board-frame {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
+.panel {
     background: var(--bg-panel);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(47, 251, 255, 0.05) inset;
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(47, 251, 255, 0.05) inset;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.panel h2 {
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel h2 .tag {
+    font-size: 0.68rem;
+    background: rgba(47, 251, 255, 0.15);
+    border: 1px solid var(--border);
+    color: var(--neon-cyan);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.panel-hint {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 0 0 0.85rem;
+}
+
+.db-panel {
+    flex: 1.15;
+    min-width: 0;
+}
+
+.query-panel {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+}
+
+.diagram-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    border-radius: 8px;
+    background: #ffffff;
 }
 
 #schema-diagram {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
+    display: block;
+    min-width: 780px;
+    width: 100%;
     height: auto;
-    background: #ffffff;
-    border-radius: 8px;
 }
-
-.board-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dim);
-    font-family: "Courier New", monospace;
-    font-size: 0.78rem;
-    margin: 0;
-    text-align: center;
-}
-
-.board-legend strong { color: var(--neon-cyan); }
-.board-legend-sep { color: rgba(255, 255, 255, 0.2); }
 
 .loading {
     color: var(--text-dim);
@@ -358,16 +381,6 @@ sql-exercise .sqlExInputArea input:disabled {
     margin-top: 0;
 }
 
-.modal-box.wide {
-    max-width: 900px;
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 40px rgba(47, 251, 255, 0.3);
-}
-
-.modal-box.wide .query-title {
-    color: var(--neon-cyan);
-    text-shadow: 0 0 10px rgba(47, 251, 255, 0.5);
-}
 
 .modal-box p {
     color: var(--text-dim);
@@ -445,6 +458,7 @@ sql-exercise .sqlExInputArea input:disabled {
 @media (max-width: 860px) {
     .neon-title { font-size: 1.6rem; }
     .case-header { justify-content: center; text-align: center; }
-    .board-frame { padding: 0.75rem; }
-    .modal-box.wide { max-width: 100%; }
+    .panels { flex-direction: column; }
+    .db-panel { flex: none; height: 45vh; }
+    .query-panel { flex: none; }
 }
