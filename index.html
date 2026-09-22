@@ -92,11 +92,13 @@ LIMIT 5;"></sql-exercise>
     <div id="accuse-modal" class="modal-overlay hidden">
         <div class="modal-box">
             <button id="accuse-close" class="modal-close">✕</button>
-            <h2>🚨 Acusación final</h2>
-            <p>Escribí el nombre completo de la persona que creés que cometió el asesinato. Una vez que confirmes, tu respuesta queda registrada en el expediente.</p>
+            <h2 id="accuse-title">🚨 Acusación final</h2>
+            <p id="accuse-lives">❤️ ❤️ ❤️</p>
+            <p id="accuse-prompt">Escribí el nombre completo de la persona que apretó el gatillo.</p>
             <input id="accuse-input" type="text" placeholder="Nombre completo del sospechoso…" autocomplete="off">
             <button id="accuse-submit" class="neon-btn danger">Confirmar acusación</button>
             <div id="accuse-result"></div>
+            <button id="accuse-reset" class="neon-btn ghost hidden">↺ Reiniciar acusación</button>
         </div>
     </div>
 

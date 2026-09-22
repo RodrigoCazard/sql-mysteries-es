@@ -457,6 +457,21 @@ sql-exercise .sqlExInputArea input:disabled {
 .accuse-echo strong { color: var(--neon-amber); }
 .accuse-note { color: var(--text-dim); font-size: 0.78rem; }
 .accuse-warning { color: var(--neon-red); font-size: 0.88rem; }
+.accuse-success { color: #7cffb2; font-size: 0.88rem; margin-bottom: 0.5rem; }
+
+#accuse-lives {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.3rem;
+    margin: 0 0 1rem;
+}
+
+#accuse-reset { width: 100%; margin-top: 0.75rem; }
+
+.neon-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
 /* ---------- Footer ---------- */
 
