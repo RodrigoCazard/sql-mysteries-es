@@ -124,24 +124,30 @@
             return;
         }
 
-        if (normalize(raw) === LEVELS[level].answer) {
-            if (level < LEVELS.length - 1) {
-                level++;
-                accuseInput.value = '';
-                accuseResult.innerHTML = '<div class="accuse-success">Correcto. ' + raw.replace(/</g, '&lt;') + ' es el autor material del crimen... pero hay algo más.</div>';
-                renderLevel();
-                celebrateTwist();
-            } else {
-                finished = true;
-                recordSolution(raw + ' (contrató a Jeremy Bowers)');
-                celebrateWin();
-                accuseResult.innerHTML =
-                    '<div class="case-closed">CASO CERRADO</div>' +
-                    '<div class="accuse-echo">Autor material: <strong>Jeremy Bowers</strong><br>Autora intelectual: <strong>' + raw.replace(/</g, '&lt;') + '</strong></div>' +
-                    '<div class="accuse-note">¡Resolviste el misterio completo!</div>';
-                setFormEnabled(false);
-                accuseResetBtn.classList.remove('hidden');
-            }
+        var normalized = normalize(raw);
+        var finalAnswer = LEVELS[LEVELS.length - 1].answer;
+
+        // The mastermind's name always wins the whole case, even if the
+        // player names her before naming the shooter.
+        if (normalized === finalAnswer) {
+            finished = true;
+            recordSolution(raw + ' (contrató a Jeremy Bowers)');
+            celebrateWin();
+            accuseResult.innerHTML =
+                '<div class="case-closed">CASO CERRADO</div>' +
+                '<div class="accuse-echo">Autor material: <strong>Jeremy Bowers</strong><br>Autora intelectual: <strong>' + raw.replace(/</g, '&lt;') + '</strong></div>' +
+                '<div class="accuse-note">¡Resolviste el misterio completo!</div>';
+            setFormEnabled(false);
+            accuseResetBtn.classList.remove('hidden');
+            return;
+        }
+
+        if (level < LEVELS.length - 1 && normalized === LEVELS[level].answer) {
+            level++;
+            accuseInput.value = '';
+            accuseResult.innerHTML = '<div class="accuse-success">Correcto. ' + raw.replace(/</g, '&lt;') + ' es el autor material del crimen... pero hay algo más.</div>';
+            renderLevel();
+            celebrateTwist();
             return;
         }
 
