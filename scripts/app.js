@@ -94,6 +94,28 @@
         query("INSERT INTO solucion VALUES (1, '" + escaped + "'); SELECT valor FROM solucion;", function () {}, function () {});
     }
 
+    // Big, colorful burst for finishing the whole case.
+    function celebrateWin() {
+        if (typeof confetti !== 'function') { return; }
+        var colors = ['#2ffbff', '#ff3ec8', '#ffcf5c', '#7cffb2'];
+        confetti({ particleCount: 160, spread: 100, origin: { y: 0.5 }, colors: colors, zIndex: 2000 });
+        setTimeout(function () {
+            confetti({ particleCount: 100, angle: 60, spread: 70, origin: { x: 0, y: 0.6 }, colors: colors, zIndex: 2000 });
+            confetti({ particleCount: 100, angle: 120, spread: 70, origin: { x: 1, y: 0.6 }, colors: colors, zIndex: 2000 });
+        }, 250);
+    }
+
+    // Smaller amber/red "plot twist" burst + a quick shake for the false lead.
+    function celebrateTwist() {
+        if (typeof confetti === 'function') {
+            confetti({ particleCount: 40, spread: 55, startVelocity: 25, origin: { y: 0.4 }, colors: ['#ffcf5c', '#ff4d6d'], scalar: 0.8, zIndex: 2000 });
+        }
+        var box = accuseModal.querySelector('.modal-box');
+        box.classList.remove('twist-flash');
+        void box.offsetWidth; // restart animation if triggered again
+        box.classList.add('twist-flash');
+    }
+
     function submitAccusation() {
         if (finished) { return; }
         var raw = accuseInput.value.trim();
@@ -106,11 +128,13 @@
             if (level < LEVELS.length - 1) {
                 level++;
                 accuseInput.value = '';
-                accuseResult.innerHTML = '<div class="accuse-success">Correcto. ' + raw.replace(/</g, '&lt;') + ' es el autor material del crimen.</div>';
+                accuseResult.innerHTML = '<div class="accuse-success">Correcto. ' + raw.replace(/</g, '&lt;') + ' es el autor material del crimen... pero hay algo más.</div>';
                 renderLevel();
+                celebrateTwist();
             } else {
                 finished = true;
                 recordSolution(raw + ' (contrató a Jeremy Bowers)');
+                celebrateWin();
                 accuseResult.innerHTML =
                     '<div class="case-closed">CASO CERRADO</div>' +
                     '<div class="accuse-echo">Autor material: <strong>Jeremy Bowers</strong><br>Autora intelectual: <strong>' + raw.replace(/</g, '&lt;') + '</strong></div>' +
