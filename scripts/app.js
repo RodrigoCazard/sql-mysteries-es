@@ -42,12 +42,12 @@
     var LEVELS = [
         {
             answer: 'jeremy bowers',
-            title: '🚨 Acusación final',
+            title: 'Acusación final',
             prompt: 'Escribí el nombre completo de la persona que apretó el gatillo.',
         },
         {
             answer: 'miranda priestly',
-            title: '🕵️ ¿Quién dio la orden?',
+            title: '¿Quién dio la orden?',
             prompt: 'Bien hecho. Pero a ese hombre lo contrataron para matar. ¿Quién es la verdadera responsable del asesinato?',
         },
     ];
@@ -61,9 +61,14 @@
     }
 
     function renderLives() {
-        var hearts = '';
-        for (var i = 0; i < MAX_LIVES; i++) { hearts += i < lives ? '❤️ ' : '🖤 '; }
-        accuseLives.textContent = hearts.trim();
+        accuseLives.innerHTML = '';
+        for (var i = 0; i < MAX_LIVES; i++) {
+            var dot = document.createElement('span');
+            dot.className = i < lives ? 'life-on' : 'life-off';
+            dot.textContent = '●';
+            accuseLives.appendChild(dot);
+            if (i < MAX_LIVES - 1) { accuseLives.appendChild(document.createTextNode(' ')); }
+        }
     }
 
     function renderLevel() {
@@ -94,10 +99,10 @@
         query("INSERT INTO solucion VALUES (1, '" + escaped + "'); SELECT valor FROM solucion;", function () {}, function () {});
     }
 
-    // Big, colorful burst for finishing the whole case.
+    // Big, warm-toned burst for finishing the whole case.
     function celebrateWin() {
         if (typeof confetti !== 'function') { return; }
-        var colors = ['#2ffbff', '#ff3ec8', '#ffcf5c', '#7cffb2'];
+        var colors = ['#c99a4a', '#e0b262', '#ece7dd', '#9fb98a'];
         confetti({ particleCount: 160, spread: 100, origin: { y: 0.5 }, colors: colors, zIndex: 2000 });
         setTimeout(function () {
             confetti({ particleCount: 100, angle: 60, spread: 70, origin: { x: 0, y: 0.6 }, colors: colors, zIndex: 2000 });
@@ -105,10 +110,10 @@
         }, 250);
     }
 
-    // Smaller amber/red "plot twist" burst + a quick shake for the false lead.
+    // Smaller burst + a quick shake for the false lead (not the real culprit).
     function celebrateTwist() {
         if (typeof confetti === 'function') {
-            confetti({ particleCount: 40, spread: 55, startVelocity: 25, origin: { y: 0.4 }, colors: ['#ffcf5c', '#ff4d6d'], scalar: 0.8, zIndex: 2000 });
+            confetti({ particleCount: 40, spread: 55, startVelocity: 25, origin: { y: 0.4 }, colors: ['#c99a4a', '#b5544a'], scalar: 0.8, zIndex: 2000 });
         }
         var box = accuseModal.querySelector('.modal-box');
         box.classList.remove('twist-flash');
