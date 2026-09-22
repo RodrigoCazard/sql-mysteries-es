@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cloud.typenetwork.com/projects/5433/fontface.css" />
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css" />
+    <!-- /CSS -->
+
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/manifest.json">
+    <link rel="mask-icon" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- /FAVICONS -->
+
+    <title>El Misterio del Asesinato en SQL</title>
+    <!-- Meta -->
+    <meta name="keywords" content="SQL, bases de datos, juego, diversión">
+    <meta name="description" content="Usa consultas SQL para resolver el misterio del asesinato. Apto para principiantes o sabuesos experimentados de SQL.">
+    <!-- /Meta -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="El Misterio del Asesinato en SQL" />
+    <meta property="og:description" content="Usa consultas SQL para resolver el misterio del asesinato. Apto para principiantes o sabuesos experimentados de SQL." />
+    <meta property="og:image" content="http://mystery.knightlab.com/174092-clue-illustration.png" />
+    <meta property="og:site_name" content="El Misterio del Asesinato en SQL (traducción de Knight Lab)" />
+    <!-- /Open Graph -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="El Misterio del Asesinato en SQL">
+    <meta name="twitter:description" content="Usa consultas SQL para resolver el misterio del asesinato. Apto para principiantes o sabuesos experimentados de SQL.">
+    <meta name="twitter:image" content="http://mystery.knightlab.com/174092-clue-illustration.png">
+    <!-- /Twitter Card -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+    </link>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/neat.css" />
+
+    <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
+    <script src="scripts/codemirror.js"></script>
+    <script src="scripts/codemirrorsql.js"></script>
+    <script src="scripts/autorefresh.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        window.onload = () => loadData('sql-murder-mystery.db');
+    </script>
+    <title>El Misterio del Asesinato en SQL</title>
+</head>
+
+<body>
+    <header class="header-product">
+        <h1 class="product-logo product-logo-large">
+            El Misterio del Asesinato en SQL
+        </h1>
+        <h2 class="product-tagline">¿Puedes descubrir quién lo hizo?</h2>
+    </header>
+
+    <div class="container">
+
+        <div id="intro" class="grid">
+            <div class="grid-item">
+                <img src="174092-clue-illustration.png" class="img-rounded" alt="Una ilustración decorativa de un detective mirando un tablero de evidencias.">
+                <p>
+                    ¡Ha habido un asesinato en SQL City! El Misterio del Asesinato en SQL está diseñado tanto para ser una lección autoguiada para aprender conceptos y comandos de SQL como un juego divertido para que usuarios experimentados de SQL resuelvan un crimen intrigante.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-item">
+                <h2>¿Nuevo en SQL?</h2>
+                <p>
+                    Este ejercicio está pensado más como una forma de practicar habilidades de SQL que como un tutorial completo. Si nunca usaste SQL, <a href="walkthrough.html">probá el tutorial guiado</a>. Si realmente querés aprender mucho sobre SQL, tal vez prefieras un
+                    tutorial completo como <a href="https://selectstarsql.com/">Select Star SQL.</a>
+
+                </p>
+                <p>Si ya te sentís cómodo con SQL, podés <a href="#experienced">ir directo abajo</a>!</p>
+            </div>
+        </div>
+
+
+        <div class="grid">
+            <div class="grid-item">
+                <h2 id="experienced">Sabuesos de SQL experimentados, empiecen acá</h2>
+                <p>
+                    Ha ocurrido un crimen y el detective necesita tu ayuda. El detective te dio el reporte de la escena del crimen, pero de algún modo lo perdiste. Recordás vagamente que el crimen fue un <strong>​asesinato​</strong> que ocurrió en algún momento del <strong>15 de enero de 2018​</strong> y que tuvo lugar en <strong>​SQL City​</strong>. Empezá recuperando el reporte correspondiente de la base de datos del departamento de policía.
+                </p>
+
+                <h3>Explorando la estructura de la base de datos</h3>
+
+                <p>
+                    Los usuarios experimentados de SQL a menudo pueden usar consultas para inferir la estructura de una base de datos. Pero cada sistema de bases de datos maneja esta información de forma distinta. El Misterio del Asesinato en SQL está construido con SQLite. Usá este comando SQL para encontrar las tablas
+                    de la base de datos del misterio.
+                </p>
+
+                <sql-exercise data-question="Ejecutá esta consulta para encontrar los nombres de las tablas en esta base de datos." data-comment="Este comando es específico de SQLite. Para otras bases de datos, tendrás que aprender su sintaxis particular." data-default-text="SELECT name
+  FROM sqlite_master
+ where type = 'table'"></sql-exercise>
+
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-item">
+                <p>
+                    Además de conocer los nombres de las tablas, necesitás saber cómo está estructurada cada una. La forma de hacerlo también depende de la tecnología de base de datos que uses. Así se hace con SQLite.
+                </p>
+
+                <sql-exercise data-question="Ejecutá esta consulta para ver la estructura de la tabla `crime_scene_report`" data-comment="Cambiá el valor de 'name' para ver la estructura de las otras tablas que descubriste con la consulta anterior." data-default-text="SELECT sql
+  FROM sqlite_master
+ where name = 'crime_scene_report'"></sql-exercise>
+
+            </div>
+        </div>
+
+
+        <div class="grid">
+            <div class="grid-item">
+                <h3>¡El resto depende de vos!</h3>
+                <p>
+                    Si te sentís realmente cómodo con SQL, probablemente puedas resolverlo desde acá.
+                </p>
+                <p>
+                    Pero <a id="show-schema">hacé clic acá</a> para mostrar el diagrama del esquema.
+                    <img id="experienced-schema" src="schema.png" width='1002' height='491'>
+                </p>
+                <p>
+                    Y siempre podés ir al <a href="walkthrough.html">tutorial guiado</a>.
+                </p>
+
+                <sql-exercise data-question="Usá tu conocimiento del esquema de la base de datos y de los comandos SQL para descubrir quién cometió el asesinato." data-comment="Cuando creas que sabés la respuesta, pasá a la siguiente sección." data-default-text="
+
+
+
+
+
+              "></sql-exercise>
+                <!-- newlines in data-default-text force input to be larger -->
+            </div>
+        </div>
+
+        <div id="check-solution" class="grid">
+            <div class="grid-item">
+                <h3>Comprobá tu solución</h3>
+                <sql-exercise data-question="¿Encontraste al asesino?" data-comment="" data-default-text="INSERT INTO solution VALUES (1, 'Escribí acá el nombre de la persona que encontraste');
+
+        SELECT value FROM solution;"></sql-exercise>
+            </div>
+        </div>
+
+        <div id="credits" class="grid">
+            <div class="grid-item">
+                <h3>Créditos</h3>
+                <p>Esta es una traducción al español del <a href="https://github.com/NUKnightLab/sql-mysteries">SQL Murder Mystery</a> original de Knight Lab.</p>
+                <p>El SQL Murder Mystery fue creado por <a href="https://twitter.com/joonparkmusic">Joon Park</a> y <a href="https://twitter.com/Cathy_MeiyingHe">Cathy He</a> mientras eran fellows de Knight Lab.</p>
+                <p>Adaptado y producido para la web por <a href="https://twitter.com/joegermuska">Joe Germuska</a>.</p>
+                <p>Este misterio fue inspirado por <a href="https://github.com/veltman/clmystery">un crimen en la vecina
+            Terminal City.</a></p>
+                <p>El SQL basado en web es posible gracias a <a href="https://github.com/sql-js/sql.js/">SQL.js</a></p>
+                <p>Los componentes web de consultas SQL fueron creados y liberados al dominio público por Zi Chong Kao, creador de <a href="https://selectstarsql.com/">Select Star SQL.</a></p>
+                <p>Ilustración del detective cortesía de <a href="https://www.vecteezy.com/">Vectors by Vecteezy</a></p>
+                <p>El código original de este proyecto se distribuye bajo la <a href="https://github.com/NUKnightLab/sql-mysteries/blob/master/LICENSE">Licencia MIT</a></p>
+                <p>El texto y contenido original de este proyecto se distribuye bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC BY-SA 4.0</a>, la misma licencia bajo la cual se comparte esta traducción.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-knightlab--dark">
+        <div class="container">
+            <div class="grid grid-center">
+                <div class="grid-item">
+                    <span class="copyright">Traducción al español no oficial · Contenido original © Northwestern University Knight Lab</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        document.querySelector('#show-schema').addEventListener('click', function() {
+            document.querySelector('#experienced-schema').classList.add('show');
+        })
+    </script>
+
+</body>
+
+</html>
