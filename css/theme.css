@@ -211,6 +211,11 @@ body::before {
     min-height: 0;
 }
 
+.db-panel h2,
+.db-panel .panel-hint {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
 .panel h2 {
     font-size: 1.05rem;
     font-weight: 600;
@@ -225,8 +230,12 @@ body::before {
 }
 
 .db-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     flex: 1.15;
     min-width: 0;
+    padding: 0.25rem 0;
 }
 
 .query-panel {
