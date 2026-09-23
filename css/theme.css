@@ -524,7 +524,7 @@ sql-exercise .sqlExInputArea input:disabled {
 /* ---------- Manual page ---------- */
 
 .manual {
-    max-width: 800px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 2rem 1.5rem 3rem;
 }
@@ -534,7 +534,7 @@ sql-exercise .sqlExInputArea input:disabled {
     border: 1px solid var(--panel-border);
     border-radius: 10px;
     padding: 1.5rem 1.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .manual-intro h2 {
@@ -553,16 +553,28 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .lesson {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
     background: var(--panel-bg);
     border: 1px solid var(--panel-border);
     border-radius: 10px;
-    padding: 1.5rem 1.75rem;
-    margin-bottom: 1.5rem;
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.lesson.reverse {
+    flex-direction: row-reverse;
+}
+
+.lesson-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .lesson h3 {
     margin-top: 0;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: var(--text);
 }
 
@@ -574,24 +586,13 @@ sql-exercise .sqlExInputArea input:disabled {
     color: var(--accent-strong);
 }
 
-.lesson-code {
-    background: #0f0d0a;
-    border: 1px solid var(--panel-border);
-    border-radius: 8px;
-    padding: 0.85rem 1rem;
-    font-family: "Courier New", monospace;
-    font-size: 0.95rem;
-    color: var(--text);
-    overflow-x: auto;
-    margin: 0.75rem 0;
-}
-
 .lesson-img {
     display: block;
+    flex: 1;
+    min-width: 0;
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--panel-border);
-    margin-top: 0.75rem;
 }
 
 /* ---------- Responsive ---------- */
@@ -602,4 +603,5 @@ sql-exercise .sqlExInputArea input:disabled {
     .panels { flex-direction: column; }
     .db-panel { flex: none; height: 45vh; }
     .query-panel { flex: none; }
+    .lesson, .lesson.reverse { flex-direction: column; }
 }

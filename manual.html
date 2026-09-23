@@ -25,81 +25,110 @@
             <h2>Cómo hacer consultas SQL</h2>
             <p>
                 Esta base de datos se consulta con SQL, un lenguaje para pedirle información a una base de datos.
-                Acá tenés los comandos básicos que necesitás para investigar el caso, cada uno con un ejemplo
-                y una captura de cómo se ve al ejecutarlo en la consola. Podés copiar cualquiera de estos
-                ejemplos y adaptarlo cambiando el nombre de la tabla o el valor que buscás.
+                Acá tenés varias formas de buscar y combinar datos, cada una con una captura real de cómo se ve
+                al ejecutarla en la consola. Podés adaptar cualquiera de estos ejemplos cambiando el nombre de la
+                tabla, la columna o el valor que buscás.
             </p>
         </section>
 
         <section class="lesson">
-            <h3>1. Ver todo el contenido de una tabla</h3>
-            <p>Escribí <code>SELECT * FROM</code> seguido del nombre de la tabla. El asterisco (<code>*</code>) significa "todas las columnas". Podés usar el nombre de cualquier tabla del diagrama. Como la tabla <code>persona</code> tiene miles de filas, acá limitamos el resultado a 5 (lo vemos en detalle en el próximo punto).</p>
-            <pre class="lesson-code">SELECT * FROM persona LIMIT 5;</pre>
-            <img class="lesson-img" src="manual-img/select-all.png" alt="Resultado de SELECT * FROM persona, mostrando todas las columnas de la tabla persona">
+            <div class="lesson-text">
+                <h3>Ver todo el contenido de una tabla</h3>
+                <p>Escribí <code>SELECT * FROM</code> seguido del nombre de la tabla. El asterisco (<code>*</code>) significa "todas las columnas". Como las tablas pueden tener miles de filas, agregá <code>LIMIT</code> y un número para ver solo unas pocas.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/select-all.png" alt="Resultado de SELECT * FROM persona LIMIT 5, mostrando todas las columnas de la tabla persona">
         </section>
 
-        <section class="lesson">
-            <h3>2. Limitar cuántos resultados ves</h3>
-            <p>Algunas tablas tienen miles de filas. Agregando <code>LIMIT</code> y un número al final, solo ves esa cantidad de resultados.</p>
-            <pre class="lesson-code">SELECT * FROM reporte_escena_crimen
-LIMIT 3;</pre>
-            <img class="lesson-img" src="manual-img/limit.png" alt="Resultado de una consulta con LIMIT 3, mostrando solo tres filas">
-        </section>
-
-        <section class="lesson">
-            <h3>3. Buscar por un valor exacto (WHERE)</h3>
-            <p>La cláusula <code>WHERE</code> filtra los resultados según una condición. El texto va entre comillas simples (<code>'</code>) y tiene que coincidir exactamente, mayúsculas incluidas.</p>
-            <pre class="lesson-code">SELECT * FROM reporte_escena_crimen
-WHERE ciudad = 'Chicago'
-LIMIT 4;</pre>
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Buscar por un valor exacto</h3>
+                <p>La cláusula <code>WHERE</code> filtra los resultados según una condición. El texto va entre comillas simples (<code>'</code>) y tiene que coincidir exactamente, mayúsculas incluidas.</p>
+            </div>
             <img class="lesson-img" src="manual-img/where.png" alt="Resultado de una consulta con WHERE ciudad = 'Chicago'">
         </section>
 
         <section class="lesson">
-            <h3>4. Combinar varias condiciones (AND)</h3>
-            <p>Si necesitás que se cumplan dos condiciones a la vez, unilas con <code>AND</code>.</p>
-            <pre class="lesson-code">SELECT * FROM reporte_escena_crimen
-WHERE tipo = 'theft'
-  AND ciudad = 'Chicago';</pre>
+            <div class="lesson-text">
+                <h3>Buscar entre varios valores posibles</h3>
+                <p>En vez de repetir la misma columna con <code>OR</code> muchas veces, usá <code>IN</code> con una lista de valores entre paréntesis.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/in.png" alt="Resultado de una consulta con WHERE ciudad IN ('Chicago', 'Reno')">
+        </section>
+
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Que alcance con que se cumpla una sola condición</h3>
+                <p>Si con que se cumpla cualquiera de dos condiciones ya te sirve, unilas con <code>OR</code> en vez de <code>AND</code>.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/or.png" alt="Resultado de una consulta combinando dos condiciones con OR">
+        </section>
+
+        <section class="lesson">
+            <div class="lesson-text">
+                <h3>Que se cumplan todas las condiciones a la vez</h3>
+                <p>Si necesitás que se cumplan dos condiciones al mismo tiempo, unilas con <code>AND</code>.</p>
+            </div>
             <img class="lesson-img" src="manual-img/and.png" alt="Resultado de una consulta combinando dos condiciones con AND">
         </section>
 
-        <section class="lesson">
-            <h3>5. Buscar cuando más o menos sabés el nombre (LIKE)</h3>
-            <p>Si no sabés el valor exacto, usá <code>LIKE</code> en vez de <code>=</code>, junto con el símbolo <code>%</code> como comodín. <code>%</code> significa "cualquier cosa (o nada) acá". Por ejemplo, <code>'%Erickson%'</code> encuentra cualquier nombre que contenga "Erickson" en cualquier parte.</p>
-            <pre class="lesson-code">SELECT * FROM persona
-WHERE nombre LIKE '%Erickson%';</pre>
-            <img class="lesson-img" src="manual-img/like.png" alt="Resultado de una búsqueda aproximada con LIKE y el comodín %">
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Comparar números: mayor, menor o en un rango</h3>
+                <p>Con columnas numéricas podés usar <code>&gt;</code>, <code>&lt;</code> o <code>BETWEEN valor1 AND valor2</code> para buscar un rango de valores.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/between.png" alt="Resultado de una consulta con WHERE edad BETWEEN 85 AND 89">
         </section>
 
         <section class="lesson">
-            <h3>6. Ordenar los resultados (ORDER BY)</h3>
-            <p><code>ORDER BY</code> ordena los resultados según una columna. Agregá <code>DESC</code> para ir de mayor a menor, o <code>ASC</code> (el orden por defecto) para ir de menor a mayor.</p>
-            <pre class="lesson-code">SELECT * FROM licencia_conducir
-ORDER BY edad DESC
-LIMIT 5;</pre>
+            <div class="lesson-text">
+                <h3>Buscar cuando sabés cómo empieza el texto</h3>
+                <p>Usá <code>LIKE</code> en vez de <code>=</code>, con el símbolo <code>%</code> como comodín. <code>%</code> significa "cualquier cosa (o nada) acá". <code>'Mar%'</code> encuentra todo lo que empieza con "Mar".</p>
+            </div>
+            <img class="lesson-img" src="manual-img/like-starts.png" alt="Resultado de una búsqueda con LIKE 'Mar%'">
+        </section>
+
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Buscar cuando solo sabés una parte, en cualquier lugar</h3>
+                <p>Poniendo <code>%</code> de los dos lados, <code>'%Erickson%'</code> encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/like.png" alt="Resultado de una búsqueda aproximada con LIKE '%Erickson%'">
+        </section>
+
+        <section class="lesson">
+            <div class="lesson-text">
+                <h3>Ordenar los resultados</h3>
+                <p><code>ORDER BY</code> ordena los resultados según una columna. Agregá <code>DESC</code> para ir de mayor a menor, o <code>ASC</code> (el orden por defecto) para ir de menor a mayor.</p>
+            </div>
             <img class="lesson-img" src="manual-img/orderby.png" alt="Resultado de una consulta ordenada con ORDER BY edad DESC">
         </section>
 
-        <section class="lesson">
-            <h3>7. Contar cuántas filas hay (COUNT)</h3>
-            <p>Si solo querés saber cuántos registros hay, sin verlos todos, usá <code>COUNT(*)</code>.</p>
-            <pre class="lesson-code">SELECT COUNT(*) FROM persona;</pre>
-            <img class="lesson-img" src="manual-img/count.png" alt="Resultado de SELECT COUNT(*) FROM persona, mostrando el total de filas">
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Contar, sumar y promediar</h3>
+                <p><code>COUNT(*)</code> cuenta filas. <code>MIN</code>, <code>MAX</code>, <code>AVG</code> y <code>SUM</code> hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Podés combinar varias en una sola consulta.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/aggregate.png" alt="Resultado de una consulta con COUNT, MIN, MAX y AVG combinados">
         </section>
 
         <section class="lesson">
-            <h3>8. Cruzar datos de dos tablas (JOIN)</h3>
-            <p>Los datos del caso están repartidos en varias tablas conectadas entre sí (mirá las flechas del diagrama). <code>JOIN</code> te permite combinarlas en una sola consulta, indicando qué columnas las conectan con <code>ON</code>.</p>
-            <pre class="lesson-code">SELECT persona.nombre, entrevista.transcripcion
-FROM persona
-JOIN entrevista ON persona.id = entrevista.id_persona
-LIMIT 4;</pre>
+            <div class="lesson-text">
+                <h3>Cruzar datos de dos tablas relacionadas</h3>
+                <p>Los datos del caso están repartidos en varias tablas conectadas entre sí (mirá las flechas del diagrama). <code>JOIN</code> combina dos tablas en una sola consulta, indicando con <code>ON</code> qué columnas las conectan.</p>
+            </div>
             <img class="lesson-img" src="manual-img/join.png" alt="Resultado de un JOIN entre persona y entrevista">
         </section>
 
+        <section class="lesson reverse">
+            <div class="lesson-text">
+                <h3>Cruzar datos de tres tablas a la vez</h3>
+                <p>Podés encadenar más de un <code>JOIN</code> para traer columnas de varias tablas relacionadas en la misma consulta.</p>
+            </div>
+            <img class="lesson-img" src="manual-img/join-triple.png" alt="Resultado de una consulta con dos JOIN encadenados entre tres tablas">
+        </section>
+
         <section class="manual-intro">
-            <p>Con estos comandos alcanza para investigar todo el caso. <a href="index.html">Volvé a la consola de investigación</a> y probalos.</p>
+            <p>Con estas herramientas alcanza para investigar todo el caso. <a href="index.html">Volvé a la consola de investigación</a> y probalas.</p>
         </section>
     </main>
 
