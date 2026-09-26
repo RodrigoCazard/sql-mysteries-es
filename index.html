@@ -98,8 +98,124 @@
         </div>
     </div>
 
-    <!-- Discreet link to the printable/manual page -->
-    <a href="manual.html" target="_blank" class="help-fab" title="Manual del investigador" aria-label="Manual del investigador">?</a>
+    <!-- Discreet button that opens the investigator's manual as a popup -->
+    <button id="manual-open" class="help-fab" title="Manual del investigador" aria-label="Manual del investigador">?</button>
+
+    <!-- MANUAL MODAL -->
+    <div id="manual-modal" class="modal-overlay hidden">
+        <div class="modal-box manual-modal-box">
+            <button id="manual-close" class="modal-close">✕</button>
+            <h2>Manual del investigador</h2>
+            <input id="manual-search" type="search" placeholder="Buscar (por ejemplo: LIKE, JOIN, ordenar, contar…)" autocomplete="off">
+
+            <div class="manual-body">
+                <p class="manual-lead">
+                    Esta base de datos se consulta con SQL, un lenguaje para pedirle información a una base de datos.
+                    Acá tenés varias formas de buscar y combinar datos, cada una con una captura real de cómo se ve
+                    al ejecutarla en la consola. Podés adaptar cualquiera de estos ejemplos cambiando el nombre de la
+                    tabla, la columna o el valor que buscás.
+                </p>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Ver todo el contenido de una tabla</h3>
+                        <p>Escribí <code>SELECT * FROM</code> seguido del nombre de la tabla. El asterisco (<code>*</code>) significa "todas las columnas". Como las tablas pueden tener miles de filas, agregá <code>LIMIT</code> y un número para ver solo unas pocas.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/select-all.png" alt="Resultado de SELECT * FROM persona LIMIT 5, mostrando todas las columnas de la tabla persona">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Buscar por un valor exacto</h3>
+                        <p>La cláusula <code>WHERE</code> filtra los resultados según una condición. El texto va entre comillas simples (<code>'</code>) y tiene que coincidir exactamente, mayúsculas incluidas.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/where.png" alt="Resultado de una consulta con WHERE ciudad = 'Chicago'">
+                </section>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Buscar entre varios valores posibles</h3>
+                        <p>En vez de repetir la misma columna con <code>OR</code> muchas veces, usá <code>IN</code> con una lista de valores entre paréntesis.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/in.png" alt="Resultado de una consulta con WHERE ciudad IN ('Chicago', 'Reno')">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Que alcance con que se cumpla una sola condición</h3>
+                        <p>Si con que se cumpla cualquiera de dos condiciones ya te sirve, unilas con <code>OR</code> en vez de <code>AND</code>.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/or.png" alt="Resultado de una consulta combinando dos condiciones con OR">
+                </section>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Que se cumplan todas las condiciones a la vez</h3>
+                        <p>Si necesitás que se cumplan dos condiciones al mismo tiempo, unilas con <code>AND</code>.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/and.png" alt="Resultado de una consulta combinando dos condiciones con AND">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Comparar números: mayor, menor o en un rango</h3>
+                        <p>Con columnas numéricas podés usar <code>&gt;</code>, <code>&lt;</code> o <code>BETWEEN valor1 AND valor2</code> para buscar un rango de valores.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/between.png" alt="Resultado de una consulta con WHERE edad BETWEEN 85 AND 89">
+                </section>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Buscar cuando sabés cómo empieza el texto</h3>
+                        <p>Usá <code>LIKE</code> en vez de <code>=</code>, con el símbolo <code>%</code> como comodín. <code>%</code> significa "cualquier cosa (o nada) acá". <code>'Mar%'</code> encuentra todo lo que empieza con "Mar".</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/like-starts.png" alt="Resultado de una búsqueda con LIKE 'Mar%'">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Buscar cuando solo sabés una parte, en cualquier lugar</h3>
+                        <p>Poniendo <code>%</code> de los dos lados, <code>'%Erickson%'</code> encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/like.png" alt="Resultado de una búsqueda aproximada con LIKE '%Erickson%'">
+                </section>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Ordenar los resultados</h3>
+                        <p><code>ORDER BY</code> ordena los resultados según una columna. Agregá <code>DESC</code> para ir de mayor a menor, o <code>ASC</code> (el orden por defecto) para ir de menor a mayor.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/orderby.png" alt="Resultado de una consulta ordenada con ORDER BY edad DESC">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Contar, sumar y promediar</h3>
+                        <p><code>COUNT(*)</code> cuenta filas. <code>MIN</code>, <code>MAX</code>, <code>AVG</code> y <code>SUM</code> hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Podés combinar varias en una sola consulta.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/aggregate.png" alt="Resultado de una consulta con COUNT, MIN, MAX y AVG combinados">
+                </section>
+
+                <section class="lesson">
+                    <div class="lesson-text">
+                        <h3>Cruzar datos de dos tablas relacionadas</h3>
+                        <p>Los datos del caso están repartidos en varias tablas conectadas entre sí (mirá las flechas del diagrama). <code>JOIN</code> combina dos tablas en una sola consulta, indicando con <code>ON</code> qué columnas las conectan.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/join.png" alt="Resultado de un JOIN entre persona y entrevista">
+                </section>
+
+                <section class="lesson reverse">
+                    <div class="lesson-text">
+                        <h3>Cruzar datos de tres tablas a la vez</h3>
+                        <p>Podés encadenar más de un <code>JOIN</code> para traer columnas de varias tablas relacionadas en la misma consulta.</p>
+                    </div>
+                    <img class="lesson-img" src="manual-img/join-triple.png" alt="Resultado de una consulta con dos JOIN encadenados entre tres tablas">
+                </section>
+
+                <p id="manual-no-results" class="hidden">No se encontraron resultados para tu búsqueda.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/app.js"></script>
 

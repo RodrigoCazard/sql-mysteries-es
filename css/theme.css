@@ -212,9 +212,11 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
     z-index: 500;
     transition: background 0.15s ease, color 0.15s ease;
 }
@@ -535,34 +537,77 @@ sql-exercise .sqlExInputArea input:disabled {
 .case-footer a { color: var(--accent-strong); text-decoration: none; }
 .case-footer a:hover { text-decoration: underline; }
 
-/* ---------- Manual page ---------- */
+/* ---------- Manual modal (popup version) ---------- */
 
-.manual {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 3rem;
+.manual-modal-box {
+    max-width: 1100px;
+    width: 95vw;
+    max-height: 90vh;
+    text-align: left;
 }
 
-.manual-intro {
-    background: var(--panel-bg);
+.manual-modal-box h2 {
+    margin-bottom: 1rem;
+}
+
+#manual-search {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--panel-border);
-    border-radius: 10px;
-    padding: 1.5rem 1.75rem;
-    margin-bottom: 1.75rem;
+    color: var(--text);
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.manual-intro h2 {
+#manual-search:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.manual-lead {
+    color: var(--text-dim);
+    line-height: 1.6;
+    font-size: 1rem;
     margin-top: 0;
-    font-size: 1.3rem;
 }
 
-.manual-intro p, .lesson p {
+.manual-body .lesson {
+    margin-bottom: 1.25rem;
+    padding: 1.5rem;
+    gap: 1.75rem;
+}
+
+.manual-body .lesson:last-of-type {
+    margin-bottom: 0;
+}
+
+.manual-body .lesson-img {
+    max-width: 46%;
+}
+
+#manual-no-results {
+    color: var(--text-dim);
+    text-align: center;
+    padding: 2rem 0 0.5rem;
+}
+
+@media (max-width: 860px) {
+    .manual-body .lesson-img { max-width: 100%; }
+}
+
+/* ---------- Lesson cards (used inside the manual modal) ---------- */
+
+.lesson p {
     color: var(--text-dim);
     line-height: 1.6;
     font-size: 1.02rem;
 }
 
-.manual-intro a, .lesson a {
+.lesson a {
     color: var(--accent-strong);
 }
 

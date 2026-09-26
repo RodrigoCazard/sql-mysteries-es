@@ -188,9 +188,49 @@
 
     resetAccusation();
 
+    // ---- Manual modal (in-page investigator's manual with search) ----
+    var manualOpenBtn = document.getElementById('manual-open');
+    var manualModal = document.getElementById('manual-modal');
+    var manualCloseBtn = document.getElementById('manual-close');
+    var manualSearch = document.getElementById('manual-search');
+    var manualLessons = manualModal.querySelectorAll('.lesson');
+    var manualNoResults = document.getElementById('manual-no-results');
+
+    function manualNormalize(s) {
+        return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function filterManual() {
+        var q = manualNormalize(manualSearch.value.trim());
+        var visible = 0;
+        for (var i = 0; i < manualLessons.length; i++) {
+            var lesson = manualLessons[i];
+            var match = !q || manualNormalize(lesson.textContent).indexOf(q) !== -1;
+            lesson.classList.toggle('hidden', !match);
+            if (match) { visible++; }
+        }
+        manualNoResults.classList.toggle('hidden', visible !== 0);
+    }
+
+    function closeManualModal() {
+        closeModal(manualModal);
+        manualSearch.value = '';
+        filterManual();
+    }
+
+    manualOpenBtn.addEventListener('click', function () {
+        openModal(manualModal, manualSearch);
+    });
+    manualCloseBtn.addEventListener('click', closeManualModal);
+    manualModal.addEventListener('click', function (e) {
+        if (e.target === manualModal) { closeManualModal(); }
+    });
+    manualSearch.addEventListener('input', filterManual);
+
     // ---- Close modal with Escape ----
     document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape') { return; }
         if (!accuseModal.classList.contains('hidden')) { closeModal(accuseModal); }
+        if (!manualModal.classList.contains('hidden')) { closeManualModal(); }
     });
 })();
