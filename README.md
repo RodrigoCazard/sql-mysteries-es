@@ -36,7 +36,7 @@ SELECT valor FROM solucion;
 
 ## Alcance de esta traducción
 
-Se tradujo la interfaz del juego, los nombres de todas las tablas y columnas de la base de datos, y el contenido real del caso: el reporte de la escena del crimen, las entrevistas de los dos testigos y la confesión del asesino a sueldo. El resto de la base de datos (miles de reportes y entrevistas señuelo, usados a propósito como "ruido" para que el caso real sea difícil de encontrar) se dejó en inglés, ya que es texto de relleno sin relación con el caso y no afecta la resolución del misterio.
+Se tradujo la interfaz del juego, los nombres de todas las tablas y columnas de la base de datos, los valores categóricos (tipo de crimen, género, color de ojos y cabello, nivel de membresía del gimnasio), y el contenido real del caso: el reporte de la escena del crimen, las entrevistas de los dos testigos y la confesión del asesino a sueldo. El resto de la base de datos (miles de reportes y entrevistas señuelo, usados a propósito como "ruido" para que el caso real sea difícil de encontrar) se dejó en inglés, ya que es texto de relleno sin relación con el caso y no afecta la resolución del misterio.
 
 ## Autores originales
 
