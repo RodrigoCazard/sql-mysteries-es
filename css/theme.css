@@ -12,6 +12,11 @@
     --danger-strong: #cf6157;
     --text: #ece7dd;
     --text-dim: #a49c8d;
+
+    --group-selectores: #e0b262;
+    --group-concatenadores: #7fadd1;
+    --group-orden: #9fb98a;
+    --group-extra: #cf6157;
 }
 
 * { box-sizing: border-box; }
@@ -540,10 +545,11 @@ sql-exercise .sqlExInputArea input:disabled {
 /* ---------- Manual modal (popup version) ---------- */
 
 .manual-modal-box {
-    max-width: 1100px;
-    width: 95vw;
-    height: 90vh;
-    max-height: 90vh;
+    max-width: 1400px;
+    width: 96vw;
+    height: 94vh;
+    max-height: 94vh;
+    padding: 2.5rem 2.75rem;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -551,7 +557,7 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-modal-box h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
     flex: none;
 }
 
@@ -582,11 +588,11 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-nav {
-    flex: 0 0 150px;
+    flex: 0 0 190px;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding-right: 1.25rem;
+    gap: 0.4rem;
+    padding-right: 1.5rem;
     border-right: 1px solid var(--panel-border);
     overflow-y: auto;
 }
@@ -594,14 +600,15 @@ sql-exercise .sqlExInputArea input:disabled {
 .manual-nav-link {
     background: none;
     border: none;
+    border-left: 3px solid transparent;
     text-align: left;
     color: var(--text-dim);
     font-family: inherit;
-    font-size: 0.92rem;
-    padding: 0.55rem 0.65rem;
+    font-size: 0.98rem;
+    padding: 0.65rem 0.75rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .manual-nav-link:hover {
@@ -610,10 +617,17 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-nav-link.active {
-    background: rgba(201, 154, 74, 0.15);
-    color: var(--accent-strong);
     font-weight: 600;
 }
+
+.manual-nav-link[data-target="manual-group-selectores"].active,
+.manual-nav-link[data-target="manual-group-selectores"]:hover { color: var(--group-selectores); border-left-color: var(--group-selectores); }
+.manual-nav-link[data-target="manual-group-concatenadores"].active,
+.manual-nav-link[data-target="manual-group-concatenadores"]:hover { color: var(--group-concatenadores); border-left-color: var(--group-concatenadores); }
+.manual-nav-link[data-target="manual-group-orden"].active,
+.manual-nav-link[data-target="manual-group-orden"]:hover { color: var(--group-orden); border-left-color: var(--group-orden); }
+.manual-nav-link[data-target="manual-group-extra"].active,
+.manual-nav-link[data-target="manual-group-extra"]:hover { color: var(--group-extra); border-left-color: var(--group-extra); }
 
 .manual-nav-link.disabled {
     opacity: 0.35;
@@ -624,7 +638,7 @@ sql-exercise .sqlExInputArea input:disabled {
     flex: 1;
     min-width: 0;
     overflow-y: auto;
-    padding-right: 0.5rem;
+    padding-right: 0.75rem;
     scroll-behavior: smooth;
 }
 
@@ -636,7 +650,7 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-group {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.75rem;
 }
 
 .manual-group:last-of-type {
@@ -644,23 +658,33 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-group-title {
-    margin: 0 0 0.35rem;
-    font-size: 1.15rem;
+    margin: 0 0 0.45rem;
+    font-size: 1.25rem;
     color: var(--accent-strong);
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
 
 .manual-group-desc {
-    margin: 0 0 1.1rem;
+    margin: 0 0 1.4rem;
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
+#manual-group-selectores .manual-group-title { color: var(--group-selectores); }
+#manual-group-concatenadores .manual-group-title { color: var(--group-concatenadores); }
+#manual-group-orden .manual-group-title { color: var(--group-orden); }
+#manual-group-extra .manual-group-title { color: var(--group-extra); }
+
+#manual-group-selectores .lesson { border-left: 4px solid var(--group-selectores); }
+#manual-group-concatenadores .lesson { border-left: 4px solid var(--group-concatenadores); }
+#manual-group-orden .lesson { border-left: 4px solid var(--group-orden); }
+#manual-group-extra .lesson { border-left: 4px solid var(--group-extra); }
+
 .manual-body .lesson {
-    margin-bottom: 1.25rem;
-    padding: 1.5rem;
-    gap: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1.85rem;
+    gap: 2rem;
 }
 
 .manual-body .lesson:last-of-type {
@@ -680,7 +704,7 @@ sql-exercise .sqlExInputArea input:disabled {
 @media (max-width: 860px) {
     .manual-body .lesson-img { max-width: 100%; }
 
-    .manual-modal-box { height: 92vh; max-height: 92vh; }
+    .manual-modal-box { height: 92vh; max-height: 92vh; padding: 1.5rem 1.25rem; }
     .manual-layout { flex-direction: column; gap: 0.75rem; }
     .manual-nav {
         flex: none;
