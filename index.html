@@ -204,14 +204,6 @@
                         </div>
                         <img class="lesson-img" src="manual-img/join-triple.png" alt="Resultado de una consulta con dos JOIN encadenados entre tres tablas">
                     </section>
-
-                    <section class="lesson">
-                        <div class="lesson-text">
-                            <h4>Usar el resultado de una consulta dentro de otra (subconsulta)</h4>
-                            <p>Cuando el dato que buscás en una tabla depende de una condición sobre otra tabla, poné esa segunda consulta entre paréntesis después de <code>IN</code>. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.</p>
-                        </div>
-                        <img class="lesson-img" src="manual-img/subquery.png" alt="Resultado de una consulta con WHERE id_licencia IN (SELECT id FROM licencia_conducir WHERE color_ojos = 'azul')">
-                    </section>
                 </div>
 
                 <div class="manual-group">
@@ -240,6 +232,14 @@
                     <p class="manual-group-desc">Un paso más avanzado, para cuando ya tenés las herramientas de arriba controladas.</p>
 
                     <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Usar el resultado de una consulta dentro de otra (subconsulta)</h4>
+                            <p>Cuando el dato que buscás en una tabla depende de una condición sobre otra tabla, poné esa segunda consulta entre paréntesis después de <code>IN</code>. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/subquery.png" alt="Resultado de una consulta con WHERE id_licencia IN (SELECT id FROM licencia_conducir WHERE color_ojos = 'azul')">
+                    </section>
+
+                    <section class="lesson reverse">
                         <div class="lesson-text">
                             <h4>Agrupar filas y contar por grupo</h4>
                             <p><code>GROUP BY</code> agrupa las filas que comparten un mismo valor (por ejemplo, todos los eventos de una misma persona) para poder contarlas o combinarlas con <code>COUNT</code>, <code>SUM</code>, etc. Para filtrar esos grupos según el resultado de esa cuenta, usá <code>HAVING</code> en vez de <code>WHERE</code>.</p>

@@ -141,25 +141,11 @@ LIMIT 5;
 
 ---
 
-## 11. Usar el resultado de una consulta dentro de otra (subconsulta)
-
-Cuando el dato que se busca en una tabla depende de una condición sobre otra tabla, se puede poner esa segunda consulta entre paréntesis después de `IN`. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.
-
-```sql
-SELECT * FROM persona
-WHERE id_licencia IN (
-    SELECT id FROM licencia_conducir WHERE color_ojos = 'azul'
-)
-LIMIT 5;
-```
-
----
-
 # Orden y resumen
 
 *Para ordenar los resultados, o resumirlos con funciones como contar, sumar o promediar.*
 
-## 12. Ordenar los resultados (ORDER BY)
+## 11. Ordenar los resultados (ORDER BY)
 
 `ORDER BY` ordena los resultados según una columna. Se agrega `DESC` para ir de mayor a menor, o `ASC` (el orden por defecto) para ir de menor a mayor.
 
@@ -171,7 +157,7 @@ LIMIT 5;
 
 ---
 
-## 13. Contar, sumar y promediar
+## 12. Contar, sumar y promediar
 
 `COUNT(*)` cuenta filas. `MIN`, `MAX`, `AVG` y `SUM` hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Se pueden combinar varias en una sola consulta.
 
@@ -188,6 +174,20 @@ FROM licencia_conducir;
 # Extra
 
 *Un paso más avanzado, para cuando ya están controladas las herramientas de arriba.*
+
+## 13. Usar el resultado de una consulta dentro de otra (subconsulta)
+
+Cuando el dato que se busca en una tabla depende de una condición sobre otra tabla, se puede poner esa segunda consulta entre paréntesis después de `IN`. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.
+
+```sql
+SELECT * FROM persona
+WHERE id_licencia IN (
+    SELECT id FROM licencia_conducir WHERE color_ojos = 'azul'
+)
+LIMIT 5;
+```
+
+---
 
 ## 14. Agrupar filas y contar por grupo (GROUP BY / HAVING)
 
