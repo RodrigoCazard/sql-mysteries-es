@@ -178,7 +178,6 @@ body::before {
 .case-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
     padding: 1rem 1.5rem;
@@ -187,6 +186,8 @@ body::before {
 }
 
 .case-header h1 {
+    flex: 1;
+    text-align: center;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-dim);
@@ -252,7 +253,6 @@ body::before {
     min-height: 0;
 }
 
-.db-panel h2,
 .db-panel .panel-hint {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
@@ -303,6 +303,30 @@ body::before {
     padding-right: 1.6rem;
 }
 
+.accuse-fab {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--danger);
+    color: var(--text);
+    border: none;
+    padding: 1rem 1.25rem;
+    border-radius: 0 10px 10px 0;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 6px 0 20px rgba(0, 0, 0, 0.4);
+    z-index: 400;
+    transition: background 0.15s ease, padding-right 0.15s ease;
+}
+
+.accuse-fab:hover {
+    background: var(--danger-strong);
+    padding-right: 1.6rem;
+}
+
 .drawer-overlay {
     position: fixed;
     inset: 0;
@@ -339,14 +363,18 @@ body::before {
 .diagram-scroll {
     flex: 1;
     min-height: 0;
-    overflow: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
 }
 
 #schema-diagram {
     display: block;
-    min-width: 820px;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -825,4 +853,8 @@ sql-exercise .sqlExInputArea input:disabled {
     .landing-title { font-size: 1.5rem; }
     .case-header { justify-content: center; text-align: center; }
     .lesson, .lesson.reverse { flex-direction: column; }
+
+    .fab-label { display: none; }
+    .console-fab, .accuse-fab { padding: 0.85rem 0.9rem; font-size: 1.3rem; }
+    .console-fab:hover, .accuse-fab:hover { padding-right: 0.9rem; }
 }

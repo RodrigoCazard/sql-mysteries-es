@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
     <link rel="stylesheet" href="css/main.css?v=2" />
-    <link rel="stylesheet" href="css/theme.css?v=7" />
+    <link rel="stylesheet" href="css/theme.css?v=8" />
 
     <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
     <script src="scripts/codemirror.js"></script>
@@ -61,12 +61,10 @@
         <header class="case-header">
             <button id="back-btn" class="btn btn-ghost">← Volver</button>
             <h1>Expediente: <span>asesinato en SQL City</span></h1>
-            <button id="accuse-open" class="btn btn-danger">Acusar a un sospechoso</button>
         </header>
 
         <main class="panels">
             <section class="db-panel">
-                <h2>Base de datos</h2>
                 <p class="panel-hint">🔑 clave primaria &nbsp;·&nbsp; → clave foránea</p>
                 <div class="diagram-scroll">
                     <img id="schema-diagram" src="schema.svg" alt="Diagrama de la base de datos: tablas, columnas y relaciones entre ellas">
@@ -74,7 +72,8 @@
             </section>
         </main>
 
-        <button id="console-open" class="console-fab">Abrir consola ⌨</button>
+        <button id="accuse-open" class="accuse-fab"><span class="fab-label">Acusar a un sospechoso</span> ⚖</button>
+        <button id="console-open" class="console-fab"><span class="fab-label">Abrir consola</span> ⌨</button>
 
         <!-- CONSOLE DRAWER -->
         <div id="console-drawer" class="drawer-overlay hidden">
