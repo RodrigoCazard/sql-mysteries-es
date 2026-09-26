@@ -17,6 +17,26 @@
         landing.classList.remove('hidden');
     });
 
+    // ---- Console drawer (opens over the DB diagram, keeps the query state) ----
+    var consoleOpenBtn = document.getElementById('console-open');
+    var consoleDrawer = document.getElementById('console-drawer');
+    var consoleCloseBtn = document.getElementById('console-close');
+
+    function openConsoleDrawer() {
+        consoleDrawer.classList.remove('hidden');
+        consoleOpenBtn.classList.add('hidden');
+    }
+    function closeConsoleDrawer() {
+        consoleDrawer.classList.add('hidden');
+        consoleOpenBtn.classList.remove('hidden');
+    }
+
+    consoleOpenBtn.addEventListener('click', openConsoleDrawer);
+    consoleCloseBtn.addEventListener('click', closeConsoleDrawer);
+    consoleDrawer.addEventListener('click', function (e) {
+        if (e.target === consoleDrawer) { closeConsoleDrawer(); }
+    });
+
     // ---- Generic modal helpers ----
     function openModal(modal, focusEl) {
         modal.classList.remove('hidden');
@@ -262,5 +282,6 @@
         if (e.key !== 'Escape') { return; }
         if (!accuseModal.classList.contains('hidden')) { closeModal(accuseModal); }
         if (!manualModal.classList.contains('hidden')) { closeManualModal(); }
+        if (!consoleDrawer.classList.contains('hidden')) { closeConsoleDrawer(); }
     });
 })();
