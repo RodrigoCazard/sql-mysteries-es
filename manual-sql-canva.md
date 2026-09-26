@@ -4,11 +4,15 @@
 
 ## Introducción
 
-Esta base de datos se consulta con **SQL**, un lenguaje para pedirle información a una base de datos. A continuación están las formas básicas de buscar y combinar datos que hacen falta para investigar el caso. Cada una tiene una explicación simple y un ejemplo de código que se puede adaptar cambiando el nombre de la tabla, la columna o el valor buscado.
+Esta base de datos se consulta con **SQL**, un lenguaje para pedirle información a una base de datos. A continuación están las formas básicas de buscar y combinar datos que hacen falta para investigar el caso, agrupadas por lo que hacen, para que sea más fácil encontrar la que necesitás. Cada una tiene una explicación simple y un ejemplo de código que se puede adaptar cambiando el nombre de la tabla, la columna o el valor buscado.
 
 Para referencia visual, el diagrama completo de la base de datos está en `schema.svg`, y las capturas de cada ejemplo ejecutándose en la consola real están en la carpeta `manual-img/` (`select-all.png`, `where.png`, `in.png`, `or.png`, `and.png`, `between.png`, `like-starts.png`, `like.png`, `orderby.png`, `aggregate.png`, `join.png`, `join-triple.png`, `subquery.png`, `groupby.png`) por si querés usarlas como capturas de pantalla en el diseño.
 
 ---
+
+# Selectores
+
+*Para elegir qué filas te interesan: por un valor exacto, una lista de valores, un rango numérico o un patrón de texto.*
 
 ## 1. Ver todo el contenido de una tabla
 
@@ -44,7 +48,46 @@ LIMIT 5;
 
 ---
 
-## 4. Que alcance con que se cumpla una sola condición (OR)
+## 4. Comparar números: mayor, menor o en un rango (BETWEEN)
+
+Con columnas numéricas se puede usar `>`, `<` o `BETWEEN valor1 AND valor2` para buscar un rango de valores.
+
+```sql
+SELECT * FROM licencia_conducir
+WHERE edad BETWEEN 85 AND 89
+LIMIT 5;
+```
+
+---
+
+## 5. Buscar cuando se sabe cómo empieza el texto (LIKE)
+
+Se usa `LIKE` en vez de `=`, con el símbolo `%` como comodín. `%` significa "cualquier cosa (o nada) acá". `'Mar%'` encuentra todo lo que empieza con "Mar".
+
+```sql
+SELECT * FROM persona
+WHERE nombre LIKE 'Mar%'
+LIMIT 5;
+```
+
+---
+
+## 6. Buscar cuando solo se sabe una parte, en cualquier lugar
+
+Poniendo `%` de los dos lados, `'%Erickson%'` encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.
+
+```sql
+SELECT * FROM persona
+WHERE nombre LIKE '%Erickson%';
+```
+
+---
+
+# Concatenadores
+
+*Para combinar varias condiciones, o traer columnas de varias tablas (o consultas) a la vez.*
+
+## 7. Que alcance con que se cumpla una sola condición (OR)
 
 Si con que se cumpla cualquiera de dos condiciones ya sirve, unilas con `OR` en vez de `AND`.
 
@@ -57,7 +100,7 @@ LIMIT 5;
 
 ---
 
-## 5. Que se cumplan todas las condiciones a la vez (AND)
+## 8. Que se cumplan todas las condiciones a la vez (AND)
 
 Si hace falta que se cumplan dos condiciones al mismo tiempo, unilas con `AND`.
 
@@ -69,68 +112,7 @@ WHERE tipo = 'hurto'
 
 ---
 
-## 6. Comparar números: mayor, menor o en un rango
-
-Con columnas numéricas se puede usar `>`, `<` o `BETWEEN valor1 AND valor2` para buscar un rango de valores.
-
-```sql
-SELECT * FROM licencia_conducir
-WHERE edad BETWEEN 85 AND 89
-LIMIT 5;
-```
-
----
-
-## 7. Buscar cuando se sabe cómo empieza el texto (LIKE)
-
-Se usa `LIKE` en vez de `=`, con el símbolo `%` como comodín. `%` significa "cualquier cosa (o nada) acá". `'Mar%'` encuentra todo lo que empieza con "Mar".
-
-```sql
-SELECT * FROM persona
-WHERE nombre LIKE 'Mar%'
-LIMIT 5;
-```
-
----
-
-## 8. Buscar cuando solo se sabe una parte, en cualquier lugar
-
-Poniendo `%` de los dos lados, `'%Erickson%'` encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.
-
-```sql
-SELECT * FROM persona
-WHERE nombre LIKE '%Erickson%';
-```
-
----
-
-## 9. Ordenar los resultados (ORDER BY)
-
-`ORDER BY` ordena los resultados según una columna. Se agrega `DESC` para ir de mayor a menor, o `ASC` (el orden por defecto) para ir de menor a mayor.
-
-```sql
-SELECT * FROM licencia_conducir
-ORDER BY edad DESC
-LIMIT 5;
-```
-
----
-
-## 10. Contar, sumar y promediar
-
-`COUNT(*)` cuenta filas. `MIN`, `MAX`, `AVG` y `SUM` hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Se pueden combinar varias en una sola consulta.
-
-```sql
-SELECT COUNT(*) AS cantidad,
-       MIN(edad) AS edad_minima,
-       MAX(edad) AS edad_maxima,
-       AVG(edad) AS edad_promedio
-FROM licencia_conducir;
-```
-
----
-
-## 11. Cruzar datos de dos tablas relacionadas (JOIN)
+## 9. Cruzar datos de dos tablas relacionadas (JOIN)
 
 Los datos del caso están repartidos en varias tablas conectadas entre sí (ver el diagrama del esquema). `JOIN` combina dos tablas en una sola consulta, indicando con `ON` qué columnas las conectan.
 
@@ -143,7 +125,7 @@ LIMIT 4;
 
 ---
 
-## 12. Cruzar datos de tres tablas a la vez
+## 10. Cruzar datos de tres tablas a la vez
 
 Se puede encadenar más de un `JOIN` para traer columnas de varias tablas relacionadas en la misma consulta.
 
@@ -159,7 +141,7 @@ LIMIT 5;
 
 ---
 
-## 13. Usar el resultado de una consulta dentro de otra (subconsulta)
+## 11. Usar el resultado de una consulta dentro de otra (subconsulta)
 
 Cuando el dato que se busca en una tabla depende de una condición sobre otra tabla, se puede poner esa segunda consulta entre paréntesis después de `IN`. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.
 
@@ -172,6 +154,40 @@ LIMIT 5;
 ```
 
 ---
+
+# Orden y resumen
+
+*Para ordenar los resultados, o resumirlos con funciones como contar, sumar o promediar.*
+
+## 12. Ordenar los resultados (ORDER BY)
+
+`ORDER BY` ordena los resultados según una columna. Se agrega `DESC` para ir de mayor a menor, o `ASC` (el orden por defecto) para ir de menor a mayor.
+
+```sql
+SELECT * FROM licencia_conducir
+ORDER BY edad DESC
+LIMIT 5;
+```
+
+---
+
+## 13. Contar, sumar y promediar
+
+`COUNT(*)` cuenta filas. `MIN`, `MAX`, `AVG` y `SUM` hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Se pueden combinar varias en una sola consulta.
+
+```sql
+SELECT COUNT(*) AS cantidad,
+       MIN(edad) AS edad_minima,
+       MAX(edad) AS edad_maxima,
+       AVG(edad) AS edad_promedio
+FROM licencia_conducir;
+```
+
+---
+
+# Extra
+
+*Un paso más avanzado, para cuando ya están controladas las herramientas de arriba.*
 
 ## 14. Agrupar filas y contar por grupo (GROUP BY / HAVING)
 

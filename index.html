@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
     <link rel="stylesheet" href="css/main.css?v=2" />
-    <link rel="stylesheet" href="css/theme.css?v=2" />
+    <link rel="stylesheet" href="css/theme.css?v=3" />
 
     <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
     <script src="scripts/codemirror.js"></script>
@@ -116,124 +116,144 @@
                     tabla, la columna o el valor que buscás.
                 </p>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Ver todo el contenido de una tabla</h3>
-                        <p>Escribí <code>SELECT * FROM</code> seguido del nombre de la tabla. El asterisco (<code>*</code>) significa "todas las columnas". Como las tablas pueden tener miles de filas, agregá <code>LIMIT</code> y un número para ver solo unas pocas.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/select-all.png" alt="Resultado de SELECT * FROM persona LIMIT 5, mostrando todas las columnas de la tabla persona">
-                </section>
+                <div class="manual-group">
+                    <h3 class="manual-group-title">Selectores</h3>
+                    <p class="manual-group-desc">Para elegir qué filas te interesan: por un valor exacto, una lista de valores, un rango numérico o un patrón de texto.</p>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Buscar por un valor exacto</h3>
-                        <p>La cláusula <code>WHERE</code> filtra los resultados según una condición. El texto va entre comillas simples (<code>'</code>) y tiene que coincidir exactamente, mayúsculas incluidas.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/where.png" alt="Resultado de una consulta con WHERE ciudad = 'Chicago'">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Ver todo el contenido de una tabla</h4>
+                            <p>Escribí <code>SELECT * FROM</code> seguido del nombre de la tabla. El asterisco (<code>*</code>) significa "todas las columnas". Como las tablas pueden tener miles de filas, agregá <code>LIMIT</code> y un número para ver solo unas pocas.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/select-all.png" alt="Resultado de SELECT * FROM persona LIMIT 5, mostrando todas las columnas de la tabla persona">
+                    </section>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Buscar entre varios valores posibles</h3>
-                        <p>En vez de repetir la misma columna con <code>OR</code> muchas veces, usá <code>IN</code> con una lista de valores entre paréntesis.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/in.png" alt="Resultado de una consulta con WHERE ciudad IN ('Chicago', 'Reno')">
-                </section>
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Buscar por un valor exacto</h4>
+                            <p>La cláusula <code>WHERE</code> filtra los resultados según una condición. El texto va entre comillas simples (<code>'</code>) y tiene que coincidir exactamente, mayúsculas incluidas.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/where.png" alt="Resultado de una consulta con WHERE ciudad = 'Chicago'">
+                    </section>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Que alcance con que se cumpla una sola condición</h3>
-                        <p>Si con que se cumpla cualquiera de dos condiciones ya te sirve, unilas con <code>OR</code> en vez de <code>AND</code>.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/or.png" alt="Resultado de una consulta combinando dos condiciones con OR">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Buscar entre varios valores posibles</h4>
+                            <p>En vez de repetir la misma columna con <code>OR</code> muchas veces, usá <code>IN</code> con una lista de valores entre paréntesis.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/in.png" alt="Resultado de una consulta con WHERE ciudad IN ('Chicago', 'Reno')">
+                    </section>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Que se cumplan todas las condiciones a la vez</h3>
-                        <p>Si necesitás que se cumplan dos condiciones al mismo tiempo, unilas con <code>AND</code>.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/and.png" alt="Resultado de una consulta combinando dos condiciones con AND">
-                </section>
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Comparar números: mayor, menor o en un rango</h4>
+                            <p>Con columnas numéricas podés usar <code>&gt;</code>, <code>&lt;</code> o <code>BETWEEN valor1 AND valor2</code> para buscar un rango de valores.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/between.png" alt="Resultado de una consulta con WHERE edad BETWEEN 85 AND 89">
+                    </section>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Comparar números: mayor, menor o en un rango</h3>
-                        <p>Con columnas numéricas podés usar <code>&gt;</code>, <code>&lt;</code> o <code>BETWEEN valor1 AND valor2</code> para buscar un rango de valores.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/between.png" alt="Resultado de una consulta con WHERE edad BETWEEN 85 AND 89">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Buscar cuando sabés cómo empieza el texto</h4>
+                            <p>Usá <code>LIKE</code> en vez de <code>=</code>, con el símbolo <code>%</code> como comodín. <code>%</code> significa "cualquier cosa (o nada) acá". <code>'Mar%'</code> encuentra todo lo que empieza con "Mar".</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/like-starts.png" alt="Resultado de una búsqueda con LIKE 'Mar%'">
+                    </section>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Buscar cuando sabés cómo empieza el texto</h3>
-                        <p>Usá <code>LIKE</code> en vez de <code>=</code>, con el símbolo <code>%</code> como comodín. <code>%</code> significa "cualquier cosa (o nada) acá". <code>'Mar%'</code> encuentra todo lo que empieza con "Mar".</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/like-starts.png" alt="Resultado de una búsqueda con LIKE 'Mar%'">
-                </section>
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Buscar cuando solo sabés una parte, en cualquier lugar</h4>
+                            <p>Poniendo <code>%</code> de los dos lados, <code>'%Erickson%'</code> encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/like.png" alt="Resultado de una búsqueda aproximada con LIKE '%Erickson%'">
+                    </section>
+                </div>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Buscar cuando solo sabés una parte, en cualquier lugar</h3>
-                        <p>Poniendo <code>%</code> de los dos lados, <code>'%Erickson%'</code> encuentra cualquier nombre que contenga "Erickson" en cualquier posición, no solo al principio.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/like.png" alt="Resultado de una búsqueda aproximada con LIKE '%Erickson%'">
-                </section>
+                <div class="manual-group">
+                    <h3 class="manual-group-title">Concatenadores</h3>
+                    <p class="manual-group-desc">Para combinar varias condiciones, o traer columnas de varias tablas (o consultas) a la vez.</p>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Ordenar los resultados</h3>
-                        <p><code>ORDER BY</code> ordena los resultados según una columna. Agregá <code>DESC</code> para ir de mayor a menor, o <code>ASC</code> (el orden por defecto) para ir de menor a mayor.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/orderby.png" alt="Resultado de una consulta ordenada con ORDER BY edad DESC">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Que alcance con que se cumpla una sola condición</h4>
+                            <p>Si con que se cumpla cualquiera de dos condiciones ya te sirve, unilas con <code>OR</code> en vez de <code>AND</code>.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/or.png" alt="Resultado de una consulta combinando dos condiciones con OR">
+                    </section>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Contar, sumar y promediar</h3>
-                        <p><code>COUNT(*)</code> cuenta filas. <code>MIN</code>, <code>MAX</code>, <code>AVG</code> y <code>SUM</code> hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Podés combinar varias en una sola consulta.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/aggregate.png" alt="Resultado de una consulta con COUNT, MIN, MAX y AVG combinados">
-                </section>
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Que se cumplan todas las condiciones a la vez</h4>
+                            <p>Si necesitás que se cumplan dos condiciones al mismo tiempo, unilas con <code>AND</code>.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/and.png" alt="Resultado de una consulta combinando dos condiciones con AND">
+                    </section>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Cruzar datos de dos tablas relacionadas</h3>
-                        <p>Los datos del caso están repartidos en varias tablas conectadas entre sí (mirá las flechas del diagrama). <code>JOIN</code> combina dos tablas en una sola consulta, indicando con <code>ON</code> qué columnas las conectan.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/join.png" alt="Resultado de un JOIN entre persona y entrevista">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Cruzar datos de dos tablas relacionadas</h4>
+                            <p>Los datos del caso están repartidos en varias tablas conectadas entre sí (mirá las flechas del diagrama). <code>JOIN</code> combina dos tablas en una sola consulta, indicando con <code>ON</code> qué columnas las conectan.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/join.png" alt="Resultado de un JOIN entre persona y entrevista">
+                    </section>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Cruzar datos de tres tablas a la vez</h3>
-                        <p>Podés encadenar más de un <code>JOIN</code> para traer columnas de varias tablas relacionadas en la misma consulta.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/join-triple.png" alt="Resultado de una consulta con dos JOIN encadenados entre tres tablas">
-                </section>
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Cruzar datos de tres tablas a la vez</h4>
+                            <p>Podés encadenar más de un <code>JOIN</code> para traer columnas de varias tablas relacionadas en la misma consulta.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/join-triple.png" alt="Resultado de una consulta con dos JOIN encadenados entre tres tablas">
+                    </section>
 
-                <section class="lesson">
-                    <div class="lesson-text">
-                        <h3>Usar el resultado de una consulta dentro de otra (subconsulta)</h3>
-                        <p>Cuando el dato que buscás en una tabla depende de una condición sobre otra tabla, poné esa segunda consulta entre paréntesis después de <code>IN</code>. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/subquery.png" alt="Resultado de una consulta con WHERE id_licencia IN (SELECT id FROM licencia_conducir WHERE color_ojos = 'azul')">
-                </section>
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Usar el resultado de una consulta dentro de otra (subconsulta)</h4>
+                            <p>Cuando el dato que buscás en una tabla depende de una condición sobre otra tabla, poné esa segunda consulta entre paréntesis después de <code>IN</code>. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/subquery.png" alt="Resultado de una consulta con WHERE id_licencia IN (SELECT id FROM licencia_conducir WHERE color_ojos = 'azul')">
+                    </section>
+                </div>
 
-                <section class="lesson reverse">
-                    <div class="lesson-text">
-                        <h3>Agrupar filas y contar por grupo</h3>
-                        <p><code>GROUP BY</code> agrupa las filas que comparten un mismo valor (por ejemplo, todos los eventos de una misma persona) para poder contarlas o combinarlas con <code>COUNT</code>, <code>SUM</code>, etc. Para filtrar esos grupos según el resultado de esa cuenta, usá <code>HAVING</code> en vez de <code>WHERE</code>.</p>
-                    </div>
-                    <img class="lesson-img" src="manual-img/groupby.png" alt="Resultado de una consulta con GROUP BY id_persona y HAVING COUNT(*) > 3">
-                </section>
+                <div class="manual-group">
+                    <h3 class="manual-group-title">Orden y resumen</h3>
+                    <p class="manual-group-desc">Para ordenar los resultados, o resumirlos con funciones como contar, sumar o promediar.</p>
+
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Ordenar los resultados</h4>
+                            <p><code>ORDER BY</code> ordena los resultados según una columna. Agregá <code>DESC</code> para ir de mayor a menor, o <code>ASC</code> (el orden por defecto) para ir de menor a mayor.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/orderby.png" alt="Resultado de una consulta ordenada con ORDER BY edad DESC">
+                    </section>
+
+                    <section class="lesson reverse">
+                        <div class="lesson-text">
+                            <h4>Contar, sumar y promediar</h4>
+                            <p><code>COUNT(*)</code> cuenta filas. <code>MIN</code>, <code>MAX</code>, <code>AVG</code> y <code>SUM</code> hacen lo mismo con el mínimo, máximo, promedio y suma de una columna numérica. Podés combinar varias en una sola consulta.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/aggregate.png" alt="Resultado de una consulta con COUNT, MIN, MAX y AVG combinados">
+                    </section>
+                </div>
+
+                <div class="manual-group">
+                    <h3 class="manual-group-title">Extra</h3>
+                    <p class="manual-group-desc">Un paso más avanzado, para cuando ya tenés las herramientas de arriba controladas.</p>
+
+                    <section class="lesson">
+                        <div class="lesson-text">
+                            <h4>Agrupar filas y contar por grupo</h4>
+                            <p><code>GROUP BY</code> agrupa las filas que comparten un mismo valor (por ejemplo, todos los eventos de una misma persona) para poder contarlas o combinarlas con <code>COUNT</code>, <code>SUM</code>, etc. Para filtrar esos grupos según el resultado de esa cuenta, usá <code>HAVING</code> en vez de <code>WHERE</code>.</p>
+                        </div>
+                        <img class="lesson-img" src="manual-img/groupby.png" alt="Resultado de una consulta con GROUP BY id_persona y HAVING COUNT(*) > 3">
+                    </section>
+                </div>
 
                 <p id="manual-no-results" class="hidden">No se encontraron resultados para tu búsqueda.</p>
             </div>
         </div>
     </div>
 
-    <script src="scripts/app.js?v=2"></script>
+    <script src="scripts/app.js?v=3"></script>
 
 </body>
 

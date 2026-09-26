@@ -575,6 +575,28 @@ sql-exercise .sqlExInputArea input:disabled {
     margin-top: 0;
 }
 
+.manual-group {
+    margin-bottom: 2.25rem;
+}
+
+.manual-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.manual-group-title {
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.manual-group-desc {
+    margin: 0 0 1.1rem;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
 .manual-body .lesson {
     margin-bottom: 1.25rem;
     padding: 1.5rem;
@@ -631,7 +653,7 @@ sql-exercise .sqlExInputArea input:disabled {
     min-width: 0;
 }
 
-.lesson h3 {
+.lesson h4 {
     margin-top: 0;
     font-size: 1.2rem;
     color: var(--text);

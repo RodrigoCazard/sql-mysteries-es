@@ -193,7 +193,7 @@
     var manualModal = document.getElementById('manual-modal');
     var manualCloseBtn = document.getElementById('manual-close');
     var manualSearch = document.getElementById('manual-search');
-    var manualLessons = manualModal.querySelectorAll('.lesson');
+    var manualGroups = manualModal.querySelectorAll('.manual-group');
     var manualNoResults = document.getElementById('manual-no-results');
 
     function manualNormalize(s) {
@@ -203,11 +203,18 @@
     function filterManual() {
         var q = manualNormalize(manualSearch.value.trim());
         var visible = 0;
-        for (var i = 0; i < manualLessons.length; i++) {
-            var lesson = manualLessons[i];
-            var match = !q || manualNormalize(lesson.textContent).indexOf(q) !== -1;
-            lesson.classList.toggle('hidden', !match);
-            if (match) { visible++; }
+        for (var g = 0; g < manualGroups.length; g++) {
+            var group = manualGroups[g];
+            var lessons = group.querySelectorAll('.lesson');
+            var groupVisible = 0;
+            for (var i = 0; i < lessons.length; i++) {
+                var lesson = lessons[i];
+                var match = !q || manualNormalize(lesson.textContent).indexOf(q) !== -1;
+                lesson.classList.toggle('hidden', !match);
+                if (match) { groupVisible++; }
+            }
+            group.classList.toggle('hidden', groupVisible === 0);
+            visible += groupVisible;
         }
         manualNoResults.classList.toggle('hidden', visible !== 0);
     }
