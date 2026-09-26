@@ -49,9 +49,16 @@ body::before {
 #landing {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 3rem 1.25rem;
+}
+
+#landing .case-footer {
+    margin-top: 2rem;
+    background: transparent;
+    border-top: none;
 }
 
 .landing-card {
@@ -276,7 +283,6 @@ body::before {
     min-height: 0;
     overflow: auto;
     border-radius: 8px;
-    background: #ffffff;
 }
 
 #schema-diagram {
