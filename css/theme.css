@@ -97,19 +97,6 @@ body::before {
     font-weight: 600;
 }
 
-.landing-manual-link {
-    margin: 1rem 0 0;
-    font-size: 0.9rem;
-}
-
-.landing-manual-link a {
-    color: var(--text-dim);
-}
-
-.landing-manual-link a:hover {
-    color: var(--accent-strong);
-}
-
 /* ---------- Buttons ---------- */
 
 .btn {
@@ -203,10 +190,31 @@ body::before {
     font-size: 0.9rem;
 }
 
-.case-header-actions {
+/* ---------- Discreet help link ---------- */
+
+.help-fab {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--panel-border);
+    color: var(--text-dim);
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.help-fab:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ---------- Two-panel layout: diagram + query console ---------- */

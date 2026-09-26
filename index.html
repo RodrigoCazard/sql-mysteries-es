@@ -47,7 +47,6 @@
                 hasta encontrar a la persona responsable.
             </p>
             <button id="start-btn" class="btn btn-primary">Iniciar investigación</button>
-            <p class="landing-manual-link"><a href="manual.html">¿Nunca usaste SQL? Mirá el manual del investigador</a></p>
         </div>
     </section>
 
@@ -56,10 +55,7 @@
         <header class="case-header">
             <button id="back-btn" class="btn btn-ghost">← Volver</button>
             <h1>Expediente: <span>asesinato en SQL City</span></h1>
-            <div class="case-header-actions">
-                <a href="manual.html" target="_blank" class="btn btn-ghost">Manual del investigador</a>
-                <button id="accuse-open" class="btn btn-danger">Acusar a un sospechoso</button>
-            </div>
+            <button id="accuse-open" class="btn btn-danger">Acusar a un sospechoso</button>
         </header>
 
         <main class="panels">
@@ -101,6 +97,9 @@
             <button id="accuse-reset" class="btn btn-ghost hidden">Reiniciar acusación</button>
         </div>
     </div>
+
+    <!-- Discreet link to the printable/manual page -->
+    <a href="manual.html" target="_blank" class="help-fab" title="Manual del investigador" aria-label="Manual del investigador">?</a>
 
     <script src="scripts/app.js"></script>
 
