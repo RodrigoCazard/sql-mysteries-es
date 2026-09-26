@@ -600,7 +600,6 @@ sql-exercise .sqlExInputArea input:disabled {
 .manual-nav-link {
     background: none;
     border: none;
-    border-left: 3px solid transparent;
     text-align: left;
     color: var(--text-dim);
     font-family: inherit;
@@ -608,7 +607,7 @@ sql-exercise .sqlExInputArea input:disabled {
     padding: 0.65rem 0.75rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .manual-nav-link:hover {
@@ -621,13 +620,13 @@ sql-exercise .sqlExInputArea input:disabled {
 }
 
 .manual-nav-link[data-target="manual-group-selectores"].active,
-.manual-nav-link[data-target="manual-group-selectores"]:hover { color: var(--group-selectores); border-left-color: var(--group-selectores); }
+.manual-nav-link[data-target="manual-group-selectores"]:hover { color: var(--group-selectores); }
 .manual-nav-link[data-target="manual-group-concatenadores"].active,
-.manual-nav-link[data-target="manual-group-concatenadores"]:hover { color: var(--group-concatenadores); border-left-color: var(--group-concatenadores); }
+.manual-nav-link[data-target="manual-group-concatenadores"]:hover { color: var(--group-concatenadores); }
 .manual-nav-link[data-target="manual-group-orden"].active,
-.manual-nav-link[data-target="manual-group-orden"]:hover { color: var(--group-orden); border-left-color: var(--group-orden); }
+.manual-nav-link[data-target="manual-group-orden"]:hover { color: var(--group-orden); }
 .manual-nav-link[data-target="manual-group-extra"].active,
-.manual-nav-link[data-target="manual-group-extra"]:hover { color: var(--group-extra); border-left-color: var(--group-extra); }
+.manual-nav-link[data-target="manual-group-extra"]:hover { color: var(--group-extra); }
 
 .manual-nav-link.disabled {
     opacity: 0.35;
@@ -675,11 +674,6 @@ sql-exercise .sqlExInputArea input:disabled {
 #manual-group-concatenadores .manual-group-title { color: var(--group-concatenadores); }
 #manual-group-orden .manual-group-title { color: var(--group-orden); }
 #manual-group-extra .manual-group-title { color: var(--group-extra); }
-
-#manual-group-selectores .lesson { border-left: 4px solid var(--group-selectores); }
-#manual-group-concatenadores .lesson { border-left: 4px solid var(--group-concatenadores); }
-#manual-group-orden .lesson { border-left: 4px solid var(--group-orden); }
-#manual-group-extra .lesson { border-left: 4px solid var(--group-extra); }
 
 .manual-body .lesson {
     margin-bottom: 1.5rem;
