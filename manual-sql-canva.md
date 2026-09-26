@@ -6,7 +6,7 @@
 
 Esta base de datos se consulta con **SQL**, un lenguaje para pedirle información a una base de datos. A continuación están las formas básicas de buscar y combinar datos que hacen falta para investigar el caso. Cada una tiene una explicación simple y un ejemplo de código que se puede adaptar cambiando el nombre de la tabla, la columna o el valor buscado.
 
-Para referencia visual, el diagrama completo de la base de datos está en `schema.svg`, y las capturas de cada ejemplo ejecutándose en la consola real están en la carpeta `manual-img/` (`select-all.png`, `where.png`, `in.png`, `or.png`, `and.png`, `between.png`, `like-starts.png`, `like.png`, `orderby.png`, `aggregate.png`, `join.png`, `join-triple.png`) por si querés usarlas como capturas de pantalla en el diseño.
+Para referencia visual, el diagrama completo de la base de datos está en `schema.svg`, y las capturas de cada ejemplo ejecutándose en la consola real están en la carpeta `manual-img/` (`select-all.png`, `where.png`, `in.png`, `or.png`, `and.png`, `between.png`, `like-starts.png`, `like.png`, `orderby.png`, `aggregate.png`, `join.png`, `join-triple.png`, `subquery.png`, `groupby.png`) por si querés usarlas como capturas de pantalla en el diseño.
 
 ---
 
@@ -154,6 +154,34 @@ SELECT persona.nombre,
 FROM persona
 JOIN licencia_conducir ON persona.id_licencia = licencia_conducir.id
 JOIN ingreso ON persona.dni = ingreso.dni
+LIMIT 5;
+```
+
+---
+
+## 13. Usar el resultado de una consulta dentro de otra (subconsulta)
+
+Cuando el dato que se busca en una tabla depende de una condición sobre otra tabla, se puede poner esa segunda consulta entre paréntesis después de `IN`. Primero se resuelve la consulta de adentro, y el resultado se usa como lista de valores para la de afuera.
+
+```sql
+SELECT * FROM persona
+WHERE id_licencia IN (
+    SELECT id FROM licencia_conducir WHERE color_ojos = 'azul'
+)
+LIMIT 5;
+```
+
+---
+
+## 14. Agrupar filas y contar por grupo (GROUP BY / HAVING)
+
+`GROUP BY` agrupa las filas que comparten un mismo valor (por ejemplo, todos los eventos de una misma persona) para poder contarlas o combinarlas con `COUNT`, `SUM`, etc. Para filtrar esos grupos según el resultado de esa cuenta, se usa `HAVING` en vez de `WHERE` (que solo filtra filas individuales, antes de agrupar).
+
+```sql
+SELECT id_persona, COUNT(*) AS cantidad_eventos
+FROM registro_evento_facebook
+GROUP BY id_persona
+HAVING COUNT(*) > 3
 LIMIT 5;
 ```
 
