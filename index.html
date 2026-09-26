@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
     <link rel="stylesheet" href="css/main.css?v=2" />
-    <link rel="stylesheet" href="css/theme.css?v=3" />
+    <link rel="stylesheet" href="css/theme.css?v=4" />
 
     <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
     <script src="scripts/codemirror.js"></script>
@@ -108,15 +108,23 @@
             <h2>Manual del investigador</h2>
             <input id="manual-search" type="search" placeholder="Buscar (por ejemplo: LIKE, JOIN, ordenar, contar…)" autocomplete="off">
 
-            <div class="manual-body">
-                <p class="manual-lead">
-                    Esta base de datos se consulta con SQL, un lenguaje para pedirle información a una base de datos.
-                    Acá tenés varias formas de buscar y combinar datos, cada una con una captura real de cómo se ve
-                    al ejecutarla en la consola. Podés adaptar cualquiera de estos ejemplos cambiando el nombre de la
-                    tabla, la columna o el valor que buscás.
-                </p>
+            <div class="manual-layout">
+                <nav class="manual-nav">
+                    <button type="button" class="manual-nav-link" data-target="manual-group-selectores">Selectores</button>
+                    <button type="button" class="manual-nav-link" data-target="manual-group-concatenadores">Concatenadores</button>
+                    <button type="button" class="manual-nav-link" data-target="manual-group-orden">Orden y resumen</button>
+                    <button type="button" class="manual-nav-link" data-target="manual-group-extra">Extra</button>
+                </nav>
 
-                <div class="manual-group">
+                <div class="manual-body">
+                    <p class="manual-lead">
+                        Esta base de datos se consulta con SQL, un lenguaje para pedirle información a una base de datos.
+                        Acá tenés varias formas de buscar y combinar datos, cada una con una captura real de cómo se ve
+                        al ejecutarla en la consola. Podés adaptar cualquiera de estos ejemplos cambiando el nombre de la
+                        tabla, la columna o el valor que buscás.
+                    </p>
+
+                <div class="manual-group" id="manual-group-selectores">
                     <h3 class="manual-group-title">Selectores</h3>
                     <p class="manual-group-desc">Para elegir qué filas te interesan: por un valor exacto, una lista de valores, un rango numérico o un patrón de texto.</p>
 
@@ -169,7 +177,7 @@
                     </section>
                 </div>
 
-                <div class="manual-group">
+                <div class="manual-group" id="manual-group-concatenadores">
                     <h3 class="manual-group-title">Concatenadores</h3>
                     <p class="manual-group-desc">Para combinar varias condiciones, o traer columnas de varias tablas (o consultas) a la vez.</p>
 
@@ -206,7 +214,7 @@
                     </section>
                 </div>
 
-                <div class="manual-group">
+                <div class="manual-group" id="manual-group-orden">
                     <h3 class="manual-group-title">Orden y resumen</h3>
                     <p class="manual-group-desc">Para ordenar los resultados, o resumirlos con funciones como contar, sumar o promediar.</p>
 
@@ -227,7 +235,7 @@
                     </section>
                 </div>
 
-                <div class="manual-group">
+                <div class="manual-group" id="manual-group-extra">
                     <h3 class="manual-group-title">Extra</h3>
                     <p class="manual-group-desc">Un paso más avanzado, para cuando ya tenés las herramientas de arriba controladas.</p>
 
@@ -248,12 +256,13 @@
                     </section>
                 </div>
 
-                <p id="manual-no-results" class="hidden">No se encontraron resultados para tu búsqueda.</p>
+                    <p id="manual-no-results" class="hidden">No se encontraron resultados para tu búsqueda.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="scripts/app.js?v=3"></script>
+    <script src="scripts/app.js?v=4"></script>
 
 </body>
 

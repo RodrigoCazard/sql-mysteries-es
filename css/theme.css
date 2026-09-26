@@ -542,17 +542,23 @@ sql-exercise .sqlExInputArea input:disabled {
 .manual-modal-box {
     max-width: 1100px;
     width: 95vw;
+    height: 90vh;
     max-height: 90vh;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .manual-modal-box h2 {
     margin-bottom: 1rem;
+    flex: none;
 }
 
 #manual-search {
     display: block;
     width: 100%;
+    flex: none;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--panel-border);
     color: var(--text);
@@ -560,12 +566,66 @@ sql-exercise .sqlExInputArea input:disabled {
     border-radius: 8px;
     font-family: inherit;
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 #manual-search:focus {
     outline: none;
     border-color: var(--accent);
+}
+
+.manual-layout {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+    min-height: 0;
+}
+
+.manual-nav {
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-right: 1.25rem;
+    border-right: 1px solid var(--panel-border);
+    overflow-y: auto;
+}
+
+.manual-nav-link {
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 0.92rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.manual-nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+}
+
+.manual-nav-link.active {
+    background: rgba(201, 154, 74, 0.15);
+    color: var(--accent-strong);
+    font-weight: 600;
+}
+
+.manual-nav-link.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.manual-body {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scroll-behavior: smooth;
 }
 
 .manual-lead {
@@ -619,6 +679,20 @@ sql-exercise .sqlExInputArea input:disabled {
 
 @media (max-width: 860px) {
     .manual-body .lesson-img { max-width: 100%; }
+
+    .manual-modal-box { height: 92vh; max-height: 92vh; }
+    .manual-layout { flex-direction: column; gap: 0.75rem; }
+    .manual-nav {
+        flex: none;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: visible;
+        border-right: none;
+        border-bottom: 1px solid var(--panel-border);
+        padding-right: 0;
+        padding-bottom: 0.65rem;
+    }
+    .manual-nav-link { flex: none; white-space: nowrap; }
 }
 
 /* ---------- Lesson cards (used inside the manual modal) ---------- */
