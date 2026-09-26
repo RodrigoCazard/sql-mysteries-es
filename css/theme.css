@@ -172,35 +172,36 @@ body::before {
 #workspace {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.case-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1rem 1.5rem;
-    background: var(--panel-bg);
-    border-bottom: 1px solid var(--panel-border);
-}
-
-.case-header h1 {
-    flex: 1;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-dim);
-    margin: 0;
-}
-
-.case-header h1 span {
-    color: var(--text);
-}
-
-.case-header .btn {
+.back-fab {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
     padding: 0.55rem 1.1rem;
     font-size: 0.9rem;
+    z-index: 300;
+    background: rgba(20, 18, 14, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.workspace-title {
+    position: fixed;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+    z-index: 300;
+    pointer-events: none;
+}
+
+.workspace-title span {
+    color: var(--text);
 }
 
 /* ---------- Discreet help link ---------- */
@@ -239,7 +240,7 @@ body::before {
     display: flex;
     align-items: stretch;
     gap: 1.25rem;
-    padding: 1.25rem 1.5rem;
+    padding: 4rem 1.5rem 1.25rem;
     min-height: 0;
 }
 
@@ -851,10 +852,19 @@ sql-exercise .sqlExInputArea input:disabled {
 
 @media (max-width: 860px) {
     .landing-title { font-size: 1.5rem; }
-    .case-header { justify-content: center; text-align: center; }
     .lesson, .lesson.reverse { flex-direction: column; }
 
     .fab-label { display: none; }
     .console-fab, .accuse-fab { padding: 0.85rem 0.9rem; font-size: 1.3rem; }
     .console-fab:hover, .accuse-fab:hover { padding-right: 0.9rem; }
+
+    .workspace-title {
+        top: 3.5rem;
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+    .panels { padding-top: 6rem; }
 }
