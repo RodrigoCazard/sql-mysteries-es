@@ -319,6 +319,15 @@ body::before {
     display: flex;
     justify-content: flex-end;
     z-index: 900;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s linear 0.32s;
+}
+
+.drawer-overlay.open {
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
 }
 
 .drawer-panel {
@@ -332,6 +341,12 @@ body::before {
     padding: 2.25rem 2.5rem;
     overflow-y: auto;
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.32s ease;
+}
+
+.drawer-overlay.open .drawer-panel {
+    transform: translateX(0);
 }
 
 .drawer-panel h2 {

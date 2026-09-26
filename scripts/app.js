@@ -23,11 +23,11 @@
     var consoleCloseBtn = document.getElementById('console-close');
 
     function openConsoleDrawer() {
-        consoleDrawer.classList.remove('hidden');
+        consoleDrawer.classList.add('open');
         consoleOpenBtn.classList.add('hidden');
     }
     function closeConsoleDrawer() {
-        consoleDrawer.classList.add('hidden');
+        consoleDrawer.classList.remove('open');
         consoleOpenBtn.classList.remove('hidden');
     }
 
@@ -282,6 +282,6 @@
         if (e.key !== 'Escape') { return; }
         if (!accuseModal.classList.contains('hidden')) { closeModal(accuseModal); }
         if (!manualModal.classList.contains('hidden')) { closeManualModal(); }
-        if (!consoleDrawer.classList.contains('hidden')) { closeConsoleDrawer(); }
+        if (consoleDrawer.classList.contains('open')) { closeConsoleDrawer(); }
     });
 })();
